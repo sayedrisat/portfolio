@@ -801,3 +801,21 @@ body {
     transform: translateY(0);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+/* Ensure blog page posts are centered */
+.blog-header {
+    text-align: center;
+}
+
+.recent-posts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Optional: Adjust post card image size if needed */
+.post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
