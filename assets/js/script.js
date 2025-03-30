@@ -18,23 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const themePopup = document.getElementById('themePopup');
     
     if (themeToggle && themePopup) {
-        // Toggle theme popup
         themeToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             themePopup.classList.toggle('show');
         });
 
-        // Handle theme selection
         const themeOptions = themePopup.querySelectorAll('.theme-option');
         themeOptions.forEach(option => {
             option.addEventListener('click', () => {
                 const theme = option.getAttribute('data-theme');
-                setTheme( theme);
+                setTheme(theme);
                 themePopup.classList.remove('show');
             });
         });
 
-        // Close popup when clicking outside
         document.addEventListener('click', (e) => {
             if (!themePopup.contains(e.target) && !themeToggle.contains(e.target)) {
                 themePopup.classList.remove('show');
@@ -42,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle settings button (for pages without theme toggle)
     document.querySelectorAll('.settings-button:not(#themeToggle)').forEach(button => {
         button.addEventListener('click', () => {
             const popup = document.createElement('div');
@@ -70,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
             
-            document.addEventListener('click', function close commensuratePopup(e) {
+            document.addEventListener('click', function closePopup(e) {
                 if (!popup.contains(e.target) && e.target !== button) {
                     popup.remove();
                     document.removeEventListener('click', closePopup);
@@ -79,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle search button
     const searchButton = document.querySelector('.search-button');
     if (searchButton) {
         searchButton.addEventListener('click', () => {
@@ -116,14 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const allPostsContainer = document.getElementById('all-posts-container'); // Blog page
 
     if (postsContainer || allPostsContainer) {
+        console.log('Attempting to fetch posts.json...');
         fetch(postsContainer ? 'posts.json' : '../posts.json') // Adjust path based on page
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(posts => {
+                console.log('Posts fetched successfully:', posts);
                 // Sort posts by date (newest first)
                 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                 // For homepage (Recent Posts)
                 if (postsContainer) {
+                    console.log('Rendering recent posts...');
                     const recentPosts = posts.slice(0, 4); // Show latest 4 posts
                     recentPosts.forEach(post => {
                         const postElement = document.createElement('article');
@@ -143,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // For blog page (All Posts with Filtering)
                 if (allPostsContainer) {
+                    console.log('Rendering all posts...');
                     // Function to render posts based on filter
                     const renderPosts = (category) => {
                         allPostsContainer.innerHTML = ''; // Clear previous posts
@@ -185,7 +189,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             })
-            .catch(error => console.error('Error loading posts:', error));
+            .catch(error => {
+                console.error('Error loading posts:', error);
+                if (postsContainer) {
+                    postsContainer.innerHTML = '<p>Failed to load posts. Please try again later.</p>';
+                }
+                if (allPostsContainer) {
+                    allPostsContainer.innerHTML = '<p>Failed to load posts. Please try again later.</p>';
+                }
+            });
+    } else {
+        console.log('No posts container found on this page.');
     }
 });
 
