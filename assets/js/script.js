@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeOptions.forEach(option => {
             option.addEventListener('click', () => {
                 const theme = option.getAttribute('data-theme');
-                setTheme(theme);
+                setTheme( theme);
                 themePopup.classList.remove('show');
             });
         });
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
             
-            document.addEventListener('click', function closePopup(e) {
+            document.addEventListener('click', function close commensuratePopup(e) {
                 if (!popup.contains(e.target) && e.target !== button) {
                     popup.remove();
                     document.removeEventListener('click', closePopup);
@@ -110,6 +110,83 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Fetch posts from posts.json and render dynamically
+    const postsContainer = document.getElementById('posts-container'); // Homepage
+    const allPostsContainer = document.getElementById('all-posts-container'); // Blog page
+
+    if (postsContainer || allPostsContainer) {
+        fetch(postsContainer ? 'posts.json' : '../posts.json') // Adjust path based on page
+            .then(response => response.json())
+            .then(posts => {
+                // Sort posts by date (newest first)
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // For homepage (Recent Posts)
+                if (postsContainer) {
+                    const recentPosts = posts.slice(0, 4); // Show latest 4 posts
+                    recentPosts.forEach(post => {
+                        const postElement = document.createElement('article');
+                        postElement.classList.add('post-card');
+                        postElement.innerHTML = `
+                            <img src="${post.image}" alt="${post.title}" loading="lazy">
+                            <div class="post-content">
+                                <span class="post-date">${post.date}</span>
+                                <h3>${post.title}</h3>
+                                <p>${post.excerpt}</p>
+                                <a href="${post.link}" class="read-more">Read More</a>
+                            </div>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+                }
+
+                // For blog page (All Posts with Filtering)
+                if (allPostsContainer) {
+                    // Function to render posts based on filter
+                    const renderPosts = (category) => {
+                        allPostsContainer.innerHTML = ''; // Clear previous posts
+                        const filteredPosts = category === 'all' 
+                            ? posts 
+                            : posts.filter(post => post.category === category);
+
+                        filteredPosts.forEach(post => {
+                            const postElement = document.createElement('article');
+                            postElement.classList.add('post-card');
+                            postElement.innerHTML = `
+                                <img src="../${post.image}" alt="${post.title}" loading="lazy">
+                                <div class="post-content">
+                                    <span class="post-date">${post.date}</span>
+                                    <h3>${post.title}</h3>
+                                    <p>${post.excerpt}</p>
+                                    <a href="../${post.link}" class="read-more">Read More</a>
+                                </div>
+                            `;
+                            allPostsContainer.appendChild(postElement);
+                        });
+                    };
+
+                    // Initial render (show all posts)
+                    renderPosts('all');
+
+                    // Add event listeners to filter buttons
+                    document.querySelectorAll('.blog-filter').forEach(link => {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const category = link.getAttribute('data-category');
+
+                            // Update active class
+                            document.querySelectorAll('.blog-filter').forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+
+                            // Render filtered posts
+                            renderPosts(category);
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading posts:', error));
+    }
 });
 
 // Handle active navigation
@@ -130,40 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Handle CTA buttons
 document.querySelectorAll('.cta-button').forEach(button => {
     button.addEventListener('click', (e) => {
-        const service = e.target.parentElement.querySelector('h3').textContent;
-        alert(`Thank you for your interest in ${service} We'll contact you soon!`);
-    });
-});
-
-// Blog post filtering
-document.addEventListener('DOMContentLoaded', function() {
-    const filterLinks = document.querySelectorAll('.blog-filter');
-    const blogPosts = document.querySelectorAll('.post-card');
-
-    filterLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const category = this.getAttribute('data-category');
-
-            // Update active class
-            filterLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-
-            // Filter posts
-            blogPosts.forEach(post => {
-                if (category === 'all' || post.getAttribute('data-category') === category) {
-                    post.style.display = 'block';
-                    // Add animation
-                    post.style.opacity = '0';
-                    post.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        post.style.opacity = '1';
-                        post.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        });
+        const service = e.target.parentElement.querySelector('h3')?.textContent || 'our services';
+        alert(`Thank you for your interest in ${service}! We'll contact you soon!`);
     });
 });
