@@ -38,5 +38,21 @@
         "link": "posts/post5.html",
         "category": "Content Marketing",
         "image": "assets/images/ai-content.jpg"
+    },
+    {
+        "title": "The Future of Social Media Advertising in 2025",
+        "date": "March 17, 2025",
+        "excerpt": "Explore upcoming trends in social media advertising and how to stay ahead of the curve in 2025.",
+        "link": "posts/post6.html",
+        "category": "Social Media Marketing",
+        "image": "assets/images/social-media-advertising.jpg"
+    },
+    {
+        "title": "SEO for E-commerce: Boosting Sales in 2025",
+        "date": "March 16, 2025",
+        "excerpt": "Learn SEO strategies tailored for e-commerce websites to increase visibility and drive more sales.",
+        "link": "posts/post7.html",
+        "category": "Search Engine Optimization",
+        "image": "assets/images/ecommerce-seo.jpg"
     }
 ]
