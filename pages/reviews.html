@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="500+ Client Reviews - Digital Marketing Services by Sayed Risat">
+    <meta property="og:title" content="Client Reviews - Sayed Risat">
+    <meta property="og:description" content="See what our clients say about our digital marketing services">
+    <meta property="og:image" content="../assets/images/reviews-cover.jpg">
+    <title>Client Reviews | Sayed Risat</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <button class="icon-button settings-button">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div class="theme-popup">
+                <button class="theme-option" data-theme="light">
+                    <i class="fas fa-sun"></i> Light Mode
+                </button>
+                <button class="theme-option" data-theme="dark">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
+            </div>
+            <button class="icon-button search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <a href="profile.html" class="profile-link">
+                <img src="https://scontent.fdac155-1.fna.fbcdn.net/v/t39.30808-6/449302903_486204404082221_6866717224496290047_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH4Q7aRdFe4g_u7tSrzdSbJ_LXXmAbH5Rf8tdeYBsflFyLxFJQ7AGMAm79fyEBUmJ6OIBaivQCWUfBy8LlqHBGp&_nc_ohc=qI-PCIn7VqwQ7kNvgG3k12-&_nc_oc=Adlx4PwvPfxdl65FaJFFUZYAHkuzYyvnIRdm8_51ViSc5oeYqEuip87yQ6J7HcPAsDk&_nc_zt=23&_nc_ht=scontent.fdac155-1.fna&_nc_gid=VuUnDq3H4dJyhNwYVfMH1A&oh=00_AYGstv9NXUfpnocNMcTIFXqOSynqhu9_VFwJfe-lYar73A&oe=67E4D116" alt="Sayed Risat" class="profile-image">
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content reviews-page">
+        <section class="content-area">
+            <div class="reviews-header">
+                <h1>Client Reviews</h1>
+                <div class="reviews-summary">
+                    <div class="rating-overview">
+                        <div class="average-rating">
+                            <span class="rating">4.9</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="total-reviews">Based on 500+ reviews</span>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <span>5 stars</span>
+                                <div class="bar"><div class="fill" style="width: 85%"></div></div>
+                                <span>85%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>4 stars</span>
+                                <div class="bar"><div class="fill" style="width: 10%"></div></div>
+                                <span>10%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>3 stars</span>
+                                <div class="bar"><div class="fill" style="width: 3%"></div></div>
+                                <span>3%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>2 stars</span>
+                                <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                <span>1%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>1 star</span>
+                                <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                <span>1%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-filter">
+                <button class="filter-btn active" data-country="all">All Countries</button>
+                <button class="filter-btn" data-country="usa">USA</button>
+                <button class="filter-btn" data-country="uk">UK</button>
+                <button class="filter-btn" data-country="australia">Australia</button>
+                <button class="filter-btn" data-country="germany">Germany</button>
+                <button class="filter-btn" data-country="hong-kong">Hong Kong</button>
+                <button class="filter-btn" data-country="italy">Italy</button>
+            </div>
+
+            <div class="reviews-grid" id="reviewsContainer">
+                <!-- Reviews will be loaded dynamically via JavaScript -->
+            </div>
+
+            <div class="load-more">
+                <button class="cta-button" id="loadMoreBtn">Load More Reviews</button>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="review-cta">
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Join hundreds of satisfied clients who have grown their business with our digital marketing services.</p>
+                <a href="consulting.html" class="cta-button">Get Free Consultation</a>
+            </div>
+
+            <div class="services-summary">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> Search Engine Optimization</li>
+                    <li><i class="fas fa-hashtag"></i> Social Media Marketing</li>
+                    <li><i class="fas fa-ad"></i> PPC Advertising</li>
+                    <li><i class="fas fa-pen"></i> Content Marketing</li>
+                    <li><i class="fas fa-chart-pie"></i> Marketing Analytics</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Same footer as other pages -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="do-not-sell.html">Do Not Sell My Info</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/risatseo/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sayed_risat" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/sayed_risat" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/risatseo" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@risatseo" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="cta-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Demo reviews data
+        const reviewsData = [
+            {
+                name: "John Smith",
+                country: "usa",
+                rating: 5,
+                date: "March 15, 2025",
+                review: "Working with Sayed transformed our online presence. Our organic traffic increased by 300% in just 3 months!",
+                avatar: "../assets/images/avatars/usa1.jpg"
+            },
+            {
+                name: "Emma Wilson",
+                country: "uk",
+                rating: 5,
+                date: "March 14, 2025",
+                review: "Exceptional SEO service! Our e-commerce sales doubled after implementing Sayed's strategies.",
+                avatar: "../assets/images/avatars/uk1.jpg"
+            },
+            {
+                name: "Michael Chen",
+                country: "hong-kong",
+                rating: 5,
+                date: "March 13, 2025",
+                review: "Outstanding social media marketing results. Our brand engagement increased significantly.",
+                avatar: "../assets/images/avatars/hk1.jpg"
+            },
+            // Add more reviews here...
+        ];
+
+        let currentPage = 1;
+        const reviewsPerPage = 9;
+        let filteredReviews = [...reviewsData];
+
+        function displayReviews(reviews, page) {
+            const container = document.getElementById('reviewsContainer');
+            const start = (page - 1) * reviewsPerPage;
+            const end = start + reviewsPerPage;
+            const pageReviews = reviews.slice(start, end);
+
+            if (page === 1) {
+                container.innerHTML = '';
+            }
+
+            pageReviews.forEach(review => {
+                const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                const reviewCard = `
+                    <div class="review-card" data-country="${review.country}">
+                        <div class="review-header">
+                            <img src="${review.avatar}" alt="${review.name}" class="reviewer-avatar">
+                            <div class="reviewer-info">
+                                <h3>${review.name}</h3>
+                                <div class="review-meta">
+                                    <span class="review-date">${review.date}</span>
+                                    <span class="review-stars">${stars}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">${review.review}</p>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', reviewCard);
+            });
+
+            // Show/hide load more button
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            loadMoreBtn.style.display = end < reviews.length ? 'block' : 'none';
+        }
+
+        // Handle load more button
+        document.getElementById('loadMoreBtn').addEventListener('click', () => {
+            currentPage++;
+            displayReviews(filteredReviews, currentPage);
+        });
+
+        // Handle filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const country = e.target.dataset.country;
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                filteredReviews = country === 'all' 
+                    ? [...reviewsData]
+                    : reviewsData.filter(review => review.country === country);
+                
+                currentPage = 1;
+                displayReviews(filteredReviews, currentPage);
+            });
+        });
+
+        // Initial display
+        displayReviews(reviewsData, 1);
+    </script>
+</body>
+</html>

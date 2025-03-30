@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Marketing Portfolio - Showcasing successful SEO, PPC, and SMM projects">
+    <meta property="og:title" content="Digital Marketing Portfolio - Sayed Risat">
+    <meta property="og:description" content="View our successful digital marketing case studies and results.">
+    <meta property="og:image" content="../assets/images/portfolio-cover.jpg">
+    <title>Portfolio - Digital Marketing Success Stories | Sayed Risat</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Same header as blog.html -->
+        <div class="header-left">
+            <button class="icon-button settings-button">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="icon-button search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <a href="profile.html" class="profile-link">
+                <img src="../assets/images/profile.jpg" alt="Sayed Risat" class="profile-image">
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content portfolio-page">
+        <section class="content-area">
+            <div class="portfolio-header">
+                <h1>Digital Marketing Portfolio</h1>
+                <p>Explore our successful digital marketing campaigns and case studies</p>
+            </div>
+
+            <!-- Client Logo Section -->
+            <section class="client-logos">
+                <h2>Trusted By Leading Brands</h2>
+                <div class="logo-grid">
+                    <!-- Add client logos here -->
+                    <img src="../assets/images/client1.png" alt="Client 1" loading="lazy">
+                    <img src="../assets/images/client2.png" alt="Client 2" loading="lazy">
+                    <img src="../assets/images/client3.png" alt="Client 3" loading="lazy">
+                    <img src="../assets/images/client4.png" alt="Client 4" loading="lazy">
+                    <img src="../assets/images/client5.png" alt="Client 5" loading="lazy">
+                    <img src="../assets/images/client6.png" alt="Client 6" loading="lazy">
+                </div>
+            </section>
+
+            <!-- Case Studies -->
+            <section class="case-studies">
+                <div class="case-study-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="seo">SEO</button>
+                    <button class="filter-btn" data-filter="sem">SEM</button>
+                    <button class="filter-btn" data-filter="smm">Social Media</button>
+                    <button class="filter-btn" data-filter="content">Content Marketing</button>
+                </div>
+
+                <div class="case-studies-grid">
+                    <!-- SEO Case Study -->
+                    <article class="case-study-card" data-category="seo">
+                        <img src="../assets/images/seo-case-study.jpg" alt="SEO Case Study" loading="lazy">
+                        <div class="case-study-content">
+                            <h3>E-commerce SEO Success</h3>
+                            <p class="results">300% Organic Traffic Increase</p>
+                            <div class="metrics">
+                                <div class="metric">
+                                    <span class="number">300%</span>
+                                    <span class="label">Traffic Growth</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="number">150%</span>
+                                    <span class="label">Revenue Increase</span>
+                                </div>
+                            </div>
+                            <a href="case-studies/ecommerce-seo.html" class="cta-button">View Case Study</a>
+                        </div>
+                    </article>
+
+                    <!-- Social Media Case Study -->
+                    <article class="case-study-card" data-category="smm">
+                        <img src="../assets/images/smm-case-study.jpg" alt="Social Media Case Study" loading="lazy">
+                        <div class="case-study-content">
+                            <h3>Social Media Brand Growth</h3>
+                            <p class="results">1M+ Followers Achieved</p>
+                            <div class="metrics">
+                                <div class="metric">
+                                    <span class="number">1M+</span>
+                                    <span class="label">Followers</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="number">500%</span>
+                                    <span class="label">Engagement</span>
+                                </div>
+                            </div>
+                            <a href="case-studies/social-media-growth.html" class="cta-button">View Case Study</a>
+                        </div>
+                    </article>
+
+                    <!-- Content Marketing Case Study -->
+                    <article class="case-study-card" data-category="content">
+                        <img src="../assets/images/content-case-study.jpg" alt="Content Marketing Case Study" loading="lazy">
+                        <div class="case-study-content">
+                            <h3>Content Strategy Success</h3>
+                            <p class="results">10X Lead Generation</p>
+                            <div class="metrics">
+                                <div class="metric">
+                                    <span class="number">10X</span>
+                                    <span class="label">Lead Growth</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="number">200%</span>
+                                    <span class="label">Conversion Rate</span>
+                                </div>
+                            </div>
+                            <a href="case-studies/content-strategy.html" class="cta-button">View Case Study</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials">
+                <h2>Client Testimonials</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Working with Sayed transformed our online presence. The results exceeded our expectations!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/testimonial1.jpg" alt="Client Name" loading="lazy">
+                            <div class="author-info">
+                                <h4>John Smith</h4>
+                                <p>CEO, Tech Solutions Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more testimonials -->
+                </div>
+            </section>
+        </section>
+
+        <aside class="sidebar">
+            <!-- Same sidebar as blog.html -->
+            <div class="cta-section">
+                <h3>Ready to Grow Your Business?</h3>
+                <p>Let's discuss how we can help you achieve your digital marketing goals.</p>
+                <a href="consulting.html" class="cta-button">Get Free Consultation</a>
+            </div>
+
+            <div class="services-list">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> Search Engine Optimization</li>
+                    <li><i class="fas fa-hashtag"></i> Social Media Marketing</li>
+                    <li><i class="fas fa-ad"></i> PPC Advertising</li>
+                    <li><i class="fas fa-pen"></i> Content Marketing</li>
+                    <li><i class="fas fa-chart-pie"></i> Marketing Analytics</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Same footer as blog.html -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="do-not-sell.html">Do Not Sell My Info</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/risatseo/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sayed_risat" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/sayed_risat" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/risatseo" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@risatseo" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="cta-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
