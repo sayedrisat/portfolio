@@ -45,103 +45,29 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" style="grid-template-columns: 1fr;"> <!-- Remove sidebar -->
         <div class="blog-header">
             <h1>Digital Marketing Blog</h1>
             <nav class="blog-nav">
                 <ul>
                     <li><a href="#all" class="blog-filter active" data-category="all">All Posts</a></li>
-                    <li><a href="#seo" class="blog-filter" data-category="seo">Search Engine Optimization</a></li>
-                    <li><a href="#ppc" class="blog-filter" data-category="ppc">Pay Per Click</a></li>
-                    <li><a href="#smm" class="blog-filter" data-category="smm">Social Media Marketing</a></li>
-                    <li><a href="#sem" class="blog-filter" data-category="sem">Search Engine Marketing</a></li>
-                    <li><a href="#content" class="blog-filter" data-category="content">Content Marketing</a></li>
+                    <li><a href="#seo" class="blog-filter" data-category="Search Engine Optimization">Search Engine Optimization</a></li>
+                    <li><a href="#ppc" class="blog-filter" data-category="Pay Per Click">Pay Per Click</a></li>
+                    <li><a href="#smm" class="blog-filter" data-category="Social Media Marketing">Social Media Marketing</a></li>
+                    <li><a href="#sem" class="blog-filter" data-category="Search Engine Marketing">Search Engine Marketing</a></li>
+                    <li><a href="#content" class="blog-filter" data-category="Content Marketing">Content Marketing</a></li>
                 </ul>
             </nav>
         </div>
 
         <section class="recent-posts">
-            <div class="posts-grid">
-                <!-- SEO Posts -->
-                <article class="post-card" data-category="seo">
-                    <img src="../assets/images/advanced-seo.jpg" alt="Advanced SEO Techniques" class="post-image">
-                    <div class="post-content">
-                        <h3>10 Advanced SEO Techniques for 2025</h3>
-                        <div class="post-meta">
-                            <span class="date">March 22, 2025</span>
-                            <span class="author">by Sayed Risat</span>
-                            <span class="category">SEO</span>
-                        </div>
-                        <p>In 2025, SEO has evolved beyond traditional keyword optimization. Here are the most effective advanced techniques for better rankings.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-
-                <!-- PPC Posts -->
-                <article class="post-card" data-category="ppc">
-                    <img src="../assets/images/performance-max.jpg" alt="Performance Max Campaigns" class="post-image">
-                    <div class="post-content">
-                        <h3>Maximizing ROI with Performance Max Campaigns</h3>
-                        <div class="post-meta">
-                            <span class="date">March 21, 2025</span>
-                            <span class="author">by Sayed Risat</span>
-                            <span class="category">PPC</span>
-                        </div>
-                        <p>Performance Max is revolutionizing PPC advertising. Learn how to optimize your campaigns for maximum return on investment.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-
-                <!-- SMM Posts -->
-                <article class="post-card" data-category="smm">
-                    <img src="../assets/images/short-form-video.jpg" alt="Short-Form Video Content" class="post-image">
-                    <div class="post-content">
-                        <h3>Mastering Short-Form Video Content</h3>
-                        <div class="post-meta">
-                            <span class="date">March 20, 2025</span>
-                            <span class="author">by Sayed Risat</span>
-                            <span class="category">SMM</span>
-                        </div>
-                        <p>Short-form video has become the dominant content format. Learn how to create engaging content that resonates with your audience.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-
-                <!-- SEM Posts -->
-                <article class="post-card" data-category="sem">
-                    <img src="../assets/images/local-sem.jpg" alt="Local SEM" class="post-image">
-                    <div class="post-content">
-                        <h3>Local SEM: Dominating Your Geographic Market</h3>
-                        <div class="post-meta">
-                            <span class="date">March 19, 2025</span>
-                            <span class="author">by Sayed Risat</span>
-                            <span class="category">SEM</span>
-                        </div>
-                        <p>Master local search marketing with proven techniques to dominate your local market and attract more customers.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
-
-                <!-- Content Marketing Posts -->
-                <article class="post-card" data-category="content">
-                    <img src="../assets/images/ai-content.jpg" alt="AI Content Creation" class="post-image">
-                    <div class="post-content">
-                        <h3>AI-Powered Content Creation: A Complete Guide</h3>
-                        <div class="post-meta">
-                            <span class="date">March 18, 2025</span>
-                            <span class="author">by Sayed Risat</span>
-                            <span class="category">Content Marketing</span>
-                        </div>
-                        <p>Leverage AI tools for better content marketing results and create high-quality content at scale.</p>
-                        <a href="#" class="read-more">Read More</a>
-                    </div>
-                </article>
+            <div class="posts-grid" id="all-posts-container">
+                <!-- All posts will be dynamically loaded here -->
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <!-- Same footer as index.html with adjusted paths -->
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -183,7 +109,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
+            <p>© 2025, by Sayed Risat, LLC. All rights reserved.</p>
         </div>
     </footer>
 
