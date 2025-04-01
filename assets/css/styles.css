@@ -144,9 +144,11 @@ body {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 2rem;
+}
+
+/* Remove grid layout for contact page */
+.main-content.contact-page {
+    display: block; /* Remove the grid layout since there's no sidebar */
 }
 
 /* Hero Section */
@@ -457,19 +459,17 @@ body {
     transform: translateY(-2px);
 }
 
-.map-container {
-    margin-top: 3rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
+/* Updated Contact Info Styles (Moved to Main Content Area) */
 .contact-info {
     background-color: var(--white);
     padding: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     box-shadow: var(--shadow);
-    width: 100%; /* Ensure it takes full width of the sidebar */
+    margin-bottom: 3rem;
+    text-align: center; /* Center the content */
+    max-width: 600px; /* Limit the width for better appearance */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-info h3 {
@@ -479,13 +479,16 @@ body {
 
 .contact-info ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .contact-info li {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
-    margin-bottom: 1rem;
     font-size: 1rem;
     color: var(--text-color);
     word-break: break-all; /* Ensure long text like email wraps */
@@ -496,23 +499,15 @@ body {
     font-size: 1.2rem;
 }
 
-/* Responsive adjustment for smaller screens */
-@media (max-width: 768px) {
-    .contact-info {
-        padding: 1.5rem;
-    }
-
-    .contact-info li {
-        font-size: 0.9rem;
-    }
+.map-container {
+    margin-top: 3rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
 /* Responsive Design for Contact Page */
 @media (max-width: 768px) {
-    .main-content.contact-page {
-        grid-template-columns: 1fr;
-    }
-
     .contact-form-container {
         padding: 1.5rem;
     }
@@ -533,6 +528,14 @@ body {
     .contact-form .cta-button {
         padding: 0.75rem 1.5rem;
         font-size: 1rem;
+    }
+
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    .contact-info li {
+        font-size: 0.9rem;
     }
 
     .map-container iframe {
@@ -566,14 +569,18 @@ body {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
+
+    .contact-info {
+        padding: 1rem;
+    }
+
+    .contact-info li {
+        font-size: 0.85rem;
+    }
 }
 
 /* Responsive Design for General Layout */
 @media (max-width: 768px) {
-    .main-content {
-        grid-template-columns: 1fr;
-    }
-
     .header {
         flex-wrap: wrap;
         padding: 1rem;
@@ -593,17 +600,6 @@ body {
     .main-nav a {
         padding: 0.5rem;
         font-size: 0.9rem;
-    }
-
-    .profile-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .contact-info {
-        flex-direction: column;
-        gap: 0.5rem;
     }
 
     .blog-nav ul {
@@ -788,7 +784,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Sidebar */
+/* Sidebar (Not used in Contact Page anymore, but kept for other pages) */
 .sidebar {
     display: flex;
     flex-direction: column;
