@@ -1,0 +1,20 @@
+[
+    {
+        "title": "E-commerce SEO Success",
+        "date": "March 22, 2025",
+        "excerpt": "Achieved a 300% increase in organic traffic for an e-commerce client through advanced SEO strategies.",
+        "link": "case-studies/ecommerce-seo.html",
+        "category": "SEO",
+        "image": "assets/images/seo-case-study.jpg",
+        "metrics": { "traffic": "300%", "revenue": "150%" }
+    },
+    {
+        "title": "Social Media Brand Growth",
+        "date": "March 20, 2025",
+        "excerpt": "Grew a brand's social media presence to over 1M followers through targeted campaigns.",
+        "link": "case-studies/social-media-growth.html",
+        "category": "SMM",
+        "image": "assets/images/smm-case-study.jpg",
+        "metrics": { "traffic": "1M+", "revenue": "500%" }
+    }
+]
