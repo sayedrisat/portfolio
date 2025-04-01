@@ -469,6 +469,7 @@ body {
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
+    width: 100%; /* Ensure it takes full width of the sidebar */
 }
 
 .contact-info h3 {
@@ -487,11 +488,23 @@ body {
     margin-bottom: 1rem;
     font-size: 1rem;
     color: var(--text-color);
+    word-break: break-all; /* Ensure long text like email wraps */
 }
 
 .contact-info i {
     color: var(--primary-color);
     font-size: 1.2rem;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    .contact-info li {
+        font-size: 0.9rem;
+    }
 }
 
 /* Responsive Design for Contact Page */
