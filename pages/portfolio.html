@@ -14,7 +14,6 @@
 </head>
 <body>
     <header class="header">
-        <!-- Same header as blog.html -->
         <div class="header-left">
             <button class="icon-button settings-button">
                 <i class="fas fa-cog"></i>
@@ -51,87 +50,23 @@
             <!-- Client Logo Section -->
             <section class="client-logos">
                 <h2>Trusted By Leading Brands</h2>
-                <div class="logo-grid">
-                    <!-- Add client logos here -->
-                    <img src="../assets/images/client1.png" alt="Client 1" loading="lazy">
-                    <img src="../assets/images/client2.png" alt="Client 2" loading="lazy">
-                    <img src="../assets/images/client3.png" alt="Client 3" loading="lazy">
-                    <img src="../assets/images/client4.png" alt="Client 4" loading="lazy">
-                    <img src="../assets/images/client5.png" alt="Client 5" loading="lazy">
-                    <img src="../assets/images/client6.png" alt="Client 6" loading="lazy">
+                <div class="logo-grid" id="client-logos-container">
+                    <!-- Client logos will be dynamically added here -->
                 </div>
             </section>
 
             <!-- Case Studies -->
             <section class="case-studies">
                 <div class="case-study-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="seo">SEO</button>
-                    <button class="filter-btn" data-filter="sem">SEM</button>
-                    <button class="filter-btn" data-filter="smm">Social Media</button>
-                    <button class="filter-btn" data-filter="content">Content Marketing</button>
+                    <select id="case-study-filter" class="case-study-dropdown">
+                        <option value="all" selected>All</option>
+                        <option value="SEO">SEO</option>
+                        <option value="SMM">SMM</option>
+                    </select>
                 </div>
 
-                <div class="case-studies-grid">
-                    <!-- SEO Case Study -->
-                    <article class="case-study-card" data-category="seo">
-                        <img src="../assets/images/seo-case-study.jpg" alt="SEO Case Study" loading="lazy">
-                        <div class="case-study-content">
-                            <h3>E-commerce SEO Success</h3>
-                            <p class="results">300% Organic Traffic Increase</p>
-                            <div class="metrics">
-                                <div class="metric">
-                                    <span class="number">300%</span>
-                                    <span class="label">Traffic Growth</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="number">150%</span>
-                                    <span class="label">Revenue Increase</span>
-                                </div>
-                            </div>
-                            <a href="case-studies/ecommerce-seo.html" class="cta-button">View Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Social Media Case Study -->
-                    <article class="case-study-card" data-category="smm">
-                        <img src="../assets/images/smm-case-study.jpg" alt="Social Media Case Study" loading="lazy">
-                        <div class="case-study-content">
-                            <h3>Social Media Brand Growth</h3>
-                            <p class="results">1M+ Followers Achieved</p>
-                            <div class="metrics">
-                                <div class="metric">
-                                    <span class="number">1M+</span>
-                                    <span class="label">Followers</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="number">500%</span>
-                                    <span class="label">Engagement</span>
-                                </div>
-                            </div>
-                            <a href="case-studies/social-media-growth.html" class="cta-button">View Case Study</a>
-                        </div>
-                    </article>
-
-                    <!-- Content Marketing Case Study -->
-                    <article class="case-study-card" data-category="content">
-                        <img src="../assets/images/content-case-study.jpg" alt="Content Marketing Case Study" loading="lazy">
-                        <div class="case-study-content">
-                            <h3>Content Strategy Success</h3>
-                            <p class="results">10X Lead Generation</p>
-                            <div class="metrics">
-                                <div class="metric">
-                                    <span class="number">10X</span>
-                                    <span class="label">Lead Growth</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="number">200%</span>
-                                    <span class="label">Conversion Rate</span>
-                                </div>
-                            </div>
-                            <a href="case-studies/content-strategy.html" class="cta-button">View Case Study</a>
-                        </div>
-                    </article>
+                <div class="posts-grid" id="case-studies-container">
+                    <!-- Case studies will be dynamically added here -->
                 </div>
             </section>
 
@@ -157,7 +92,6 @@
         </section>
 
         <aside class="sidebar">
-            <!-- Same sidebar as blog.html -->
             <div class="cta-section">
                 <h3>Ready to Grow Your Business?</h3>
                 <p>Let's discuss how we can help you achieve your digital marketing goals.</p>
@@ -177,7 +111,6 @@
         </aside>
     </main>
 
-    <!-- Same footer as blog.html -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -230,11 +163,10 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
+            <p>© 2025, by Sayed Risat, LLC. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
     <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
