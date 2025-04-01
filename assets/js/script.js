@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fetch posts from posts.json and render dynamically
+    // Fetch posts from posts.json and render dynamically (for Blog and Homepage)
     const postsContainer = document.getElementById('posts-container'); // Homepage
     const allPostsContainer = document.getElementById('all-posts-container'); // Blog page
 
@@ -200,6 +200,99 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     } else {
         console.log('No posts container found on this page.');
+    }
+
+    // Fetch client logos for Portfolio page
+    const clientLogosContainer = document.getElementById('client-logos-container');
+    if (clientLogosContainer) {
+        console.log('Attempting to fetch client-logos.json...');
+        fetch('../client-logos.json') // Path adjusted since portfolio.html is in pages/
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(logos => {
+                console.log('Client logos fetched successfully:', logos);
+                logos.forEach(logo => {
+                    const logoElement = document.createElement('img');
+                    logoElement.src = `../${logo.image}`; // Adjust path for pages/ folder
+                    logoElement.alt = logo.name;
+                    logoElement.setAttribute('loading', 'lazy');
+                    clientLogosContainer.appendChild(logoElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading client logos:', error);
+                clientLogosContainer.innerHTML = '<p>Failed to load client logos. Please try again later.</p>';
+            });
+    }
+
+    // Fetch case studies for Portfolio page
+    const caseStudiesContainer = document.getElementById('case-studies-container');
+    const caseStudyFilter = document.getElementById('case-study-filter');
+
+    if (caseStudiesContainer) {
+        console.log('Attempting to fetch case-studies.json...');
+        fetch('../case-studies.json') // Path adjusted since portfolio.html is in pages/
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(caseStudies => {
+                console.log('Case studies fetched successfully:', caseStudies);
+
+                // Function to render case studies based on filter
+                const renderCaseStudies = (category) => {
+                    caseStudiesContainer.innerHTML = ''; // Clear previous case studies
+                    const filteredCaseStudies = category === 'all' 
+                        ? caseStudies 
+                        : caseStudies.filter(caseStudy => caseStudy.category === category);
+
+                    filteredCaseStudies.forEach(caseStudy => {
+                        const caseStudyElement = document.createElement('article');
+                        caseStudyElement.classList.add('post-card'); // Reuse post-card style
+                        caseStudyElement.innerHTML = `
+                            <img src="../${caseStudy.image}" alt="${caseStudy.title}" loading="lazy">
+                            <div class="post-content">
+                                <span class="post-date">${caseStudy.date}</span>
+                                <h3>${caseStudy.title}</h3>
+                                <p>${caseStudy.excerpt}</p>
+                                <div class="metrics">
+                                    <div class="metric">
+                                        <span class="number">${caseStudy.metrics.traffic}</span>
+                                        <span class="label">Traffic Growth</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="number">${caseStudy.metrics.revenue}</span>
+                                        <span class="label">Revenue Increase</span>
+                                    </div>
+                                </div>
+                                <a href="../${caseStudy.link}" class="read-more">View Case Study</a>
+                            </div>
+                        `;
+                        caseStudiesContainer.appendChild(caseStudyElement);
+                    });
+                };
+
+                // Initial render (show all case studies)
+                renderCaseStudies('all');
+
+                // Add event listener to dropdown filter
+                if (caseStudyFilter) {
+                    caseStudyFilter.addEventListener('change', (e) => {
+                        const category = e.target.value;
+                        renderCaseStudies(category);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error loading case studies:', error);
+                caseStudiesContainer.innerHTML = '<p>Failed to load case studies. Please try again later.</p>';
+            });
     }
 });
 
