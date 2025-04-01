@@ -496,18 +496,35 @@ body {
     filter: grayscale(0);
 }
 
-.case-study-card {
+/* Case Study Filters (Dropdown) */
+.case-study-filters {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.case-study-dropdown {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
     background-color: var(--white);
+    border: 1px solid var(--light-text);
     border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+    cursor: pointer;
     transition: var(--transition);
 }
 
-.case-study-card:hover {
-    transform: translateY(-5px);
+.case-study-dropdown:hover {
+    border-color: var(--primary-color);
 }
 
+.case-study-dropdown:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Case Study Card (Reusing post-card styles) */
 .metrics {
     display: flex;
     gap: 2rem;
