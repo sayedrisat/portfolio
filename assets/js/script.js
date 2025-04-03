@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchPopup.innerHTML = `
                 <div class="search-container">
                     <input type="text" placeholder="Search...">
-                    <button>< 🙂 class="fas fa-search"></i></button>
+                    <button><i class="fas fa-search"></i></button>
                 </div>
             `;
             document.body.appendChild(searchPopup);
@@ -360,29 +360,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const quickContactForm = document.getElementById('quickContactForm');
     if (quickContactForm) {
         quickContactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            // Get form values
+            e.preventDefault();
             const name = document.getElementById('quickName').value.trim();
             const email = document.getElementById('quickEmail').value.trim();
             const message = document.getElementById('quickMessage').value.trim();
-
-            // Construct the WhatsApp message
             const whatsappMessage = `Hi bro,\nI want to Quick Contact with you here is my contact information and message:\nI'm ${name}\nMy email: ${email}\nMessage: ${message}`;
-
-            // Encode the message for URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
-
-            // Your WhatsApp number (replace with your actual number if different)
-            const whatsappNumber = "8801861242008"; // Note: No + sign, just country code + number
-
-            // Construct WhatsApp URL
+            const whatsappNumber = "8801861242008";
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-            // Redirect to WhatsApp
             window.open(whatsappUrl, '_blank');
         });
     }
+
+    // Pricing Page Ask Price Buttons WhatsApp Integration
+    document.querySelectorAll('.ask-price-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const serviceName = button.getAttribute('data-service');
+            const whatsappMessage = `Hi, I want ${serviceName} service. So I want to ask price for it and details about it.`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappNumber = "8801861242008";
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    });
 });
 
 // Handle active navigation
@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.cta-button').forEach(button => {
     button.addEventListener('click', (e) => {
         const service = e.target.parentElement.querySelector('h3')?.textContent || 'our services';
-        if (!e.target.closest('#quickContactForm')) { // Exclude Quick Contact form button
+        if (!e.target.closest('#quickContactForm')) {
             alert(`Thank you for your interest in ${service}! We'll contact you soon!`);
         }
     });
