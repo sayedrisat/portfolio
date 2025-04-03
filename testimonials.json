@@ -1,0 +1,6 @@
+[
+    { "image": "assets/images/testimonial1.jpg", "country": "usa" },
+    { "image": "assets/images/testimonial2.jpg", "country": "uk" },
+    { "image": "assets/images/testimonial3.jpg", "country": "hong-kong" }
+    // Add more as needed
+]
