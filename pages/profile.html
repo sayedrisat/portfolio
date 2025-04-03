@@ -14,7 +14,6 @@
 </head>
 <body>
     <header class="header">
-        <!-- Same header structure as other pages -->
         <div class="header-left">
             <button class="icon-button settings-button">
                 <i class="fas fa-cog"></i>
@@ -121,10 +120,16 @@
             <aside class="sidebar">
                 <div class="quick-contact">
                     <h3>Quick Contact</h3>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" required></textarea>
+                    <form id="quickContactForm" class="quick-contact-form">
+                        <div class="form-group">
+                            <input type="text" id="quickName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="quickEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="quickMessage" placeholder="Your Message" required></textarea>
+                        </div>
                         <button type="submit" class="cta-button">Send Message</button>
                     </form>
                 </div>
@@ -140,7 +145,6 @@
         </section>
     </main>
 
-    <!-- Same footer as other pages -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -183,11 +187,10 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
+            <p>© 2025, by Sayed Risat, LLC. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
     <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
