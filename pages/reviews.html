@@ -36,7 +36,7 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="reviews.html" class="active">Client Testimonials</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -107,7 +107,7 @@
             </div>
 
             <div class="reviews-grid" id="reviewsContainer">
-                <!-- Reviews will be loaded dynamically via JavaScript -->
+                <!-- Reviews will be loaded dynamically from script.js -->
             </div>
 
             <div class="load-more">
@@ -135,7 +135,6 @@
         </aside>
     </main>
 
-    <!-- Same footer as other pages -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -188,108 +187,14 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
+            <p>© 2025, by Sayed Risat, LLC. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Chat Button -->
     <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        // Demo reviews data
-        const reviewsData = [
-            {
-                name: "John Smith",
-                country: "usa",
-                rating: 5,
-                date: "March 15, 2025",
-                review: "Working with Sayed transformed our online presence. Our organic traffic increased by 300% in just 3 months!",
-                avatar: "../assets/images/avatars/usa1.jpg"
-            },
-            {
-                name: "Emma Wilson",
-                country: "uk",
-                rating: 5,
-                date: "March 14, 2025",
-                review: "Exceptional SEO service! Our e-commerce sales doubled after implementing Sayed's strategies.",
-                avatar: "../assets/images/avatars/uk1.jpg"
-            },
-            {
-                name: "Michael Chen",
-                country: "hong-kong",
-                rating: 5,
-                date: "March 13, 2025",
-                review: "Outstanding social media marketing results. Our brand engagement increased significantly.",
-                avatar: "../assets/images/avatars/hk1.jpg"
-            },
-            // Add more reviews here...
-        ];
-
-        let currentPage = 1;
-        const reviewsPerPage = 9;
-        let filteredReviews = [...reviewsData];
-
-        function displayReviews(reviews, page) {
-            const container = document.getElementById('reviewsContainer');
-            const start = (page - 1) * reviewsPerPage;
-            const end = start + reviewsPerPage;
-            const pageReviews = reviews.slice(start, end);
-
-            if (page === 1) {
-                container.innerHTML = '';
-            }
-
-            pageReviews.forEach(review => {
-                const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
-                const reviewCard = 
-                    <div class="review-card" data-country="${review.country}">
-                        <div class="review-header">
-                            <img src="${review.avatar}" alt="${review.name}" class="reviewer-avatar">
-                            <div class="reviewer-info">
-                                <h3>${review.name}</h3>
-                                <div class="review-meta">
-                                    <span class="review-date">${review.date}</span>
-                                    <span class="review-stars">${stars}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="review-text">${review.review}</p>
-                    </div>
-                ;
-                container.insertAdjacentHTML('beforeend', reviewCard);
-            });
-
-            // Show/hide load more button
-            const loadMoreBtn = document.getElementById('loadMoreBtn');
-            loadMoreBtn.style.display = end < reviews.length ? 'block' : 'none';
-        }
-
-        // Handle load more button
-        document.getElementById('loadMoreBtn').addEventListener('click', () => {
-            currentPage++;
-            displayReviews(filteredReviews, currentPage);
-        });
-
-        // Handle filters
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const country = e.target.dataset.country;
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                
-                filteredReviews = country === 'all' 
-                    ? [...reviewsData]
-                    : reviewsData.filter(review => review.country === country);
-                
-                currentPage = 1;
-                displayReviews(filteredReviews, currentPage);
-            });
-        });
-
-        // Initial display
-        displayReviews(reviewsData, 1);
-    </script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
