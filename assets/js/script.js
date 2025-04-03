@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchPopup.innerHTML = `
                 <div class="search-container">
                     <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
+                    <button>< 🙂 class="fas fa-search"></i></button>
                 </div>
             `;
             document.body.appendChild(searchPopup);
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (postsContainer || allPostsContainer) {
         console.log('Attempting to fetch posts.json...');
-        fetch(postsContainer ? 'posts.json' : '../posts.json') // Adjust path based on page
+        fetch(postsContainer ? 'posts.json' : '../posts.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -121,13 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(posts => {
                 console.log('Posts fetched successfully:', posts);
-                // Sort posts by date (newest first)
                 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-                // For homepage (Recent Posts)
                 if (postsContainer) {
                     console.log('Rendering recent posts...');
-                    const recentPosts = posts.slice(0, 4); // Show latest 4 posts
+                    const recentPosts = posts.slice(0, 4);
                     recentPosts.forEach(post => {
                         const postElement = document.createElement('article');
                         postElement.classList.add('post-card');
@@ -144,12 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-                // For blog page (All Posts with Filtering)
                 if (allPostsContainer) {
                     console.log('Rendering all posts...');
-                    // Function to render posts based on filter
                     const renderPosts = (category) => {
-                        allPostsContainer.innerHTML = ''; // Clear previous posts
+                        allPostsContainer.innerHTML = '';
                         const filteredPosts = category === 'all' 
                             ? posts 
                             : posts.filter(post => post.category === category);
@@ -170,20 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     };
 
-                    // Initial render (show all posts)
                     renderPosts('all');
 
-                    // Add event listeners to filter buttons
                     document.querySelectorAll('.blog-filter').forEach(link => {
                         link.addEventListener('click', (e) => {
                             e.preventDefault();
                             const category = link.getAttribute('data-category');
-
-                            // Update active class
                             document.querySelectorAll('.blog-filter').forEach(l => l.classList.remove('active'));
                             link.classList.add('active');
-
-                            // Render filtered posts
                             renderPosts(category);
                         });
                     });
@@ -206,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clientLogosContainer = document.getElementById('client-logos-container');
     if (clientLogosContainer) {
         console.log('Attempting to fetch client-logos.json...');
-        fetch('../client-logos.json') // Path adjusted since portfolio.html is in pages/
+        fetch('../client-logos.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -217,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Client logos fetched successfully:', logos);
                 logos.forEach(logo => {
                     const logoElement = document.createElement('img');
-                    logoElement.src = `../${logo.image}`; // Adjust path for pages/ folder
+                    logoElement.src = `../${logo.image}`;
                     logoElement.alt = logo.name;
                     logoElement.setAttribute('loading', 'lazy');
                     clientLogosContainer.appendChild(logoElement);
@@ -235,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (caseStudiesContainer) {
         console.log('Attempting to fetch case-studies.json...');
-        fetch('../case-studies.json') // Path adjusted since portfolio.html is in pages/
+        fetch('../case-studies.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -244,17 +234,15 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(caseStudies => {
                 console.log('Case studies fetched successfully:', caseStudies);
-
-                // Function to render case studies based on filter
                 const renderCaseStudies = (category) => {
-                    caseStudiesContainer.innerHTML = ''; // Clear previous case studies
+                    caseStudiesContainer.innerHTML = '';
                     const filteredCaseStudies = category === 'all' 
                         ? caseStudies 
                         : caseStudies.filter(caseStudy => caseStudy.category === category);
 
                     filteredCaseStudies.forEach(caseStudy => {
                         const caseStudyElement = document.createElement('article');
-                        caseStudyElement.classList.add('post-card'); // Reuse post-card style
+                        caseStudyElement.classList.add('post-card');
                         caseStudyElement.innerHTML = `
                             <img src="../${caseStudy.image}" alt="${caseStudy.title}" loading="lazy">
                             <div class="post-content">
@@ -278,10 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 };
 
-                // Initial render (show all case studies)
                 renderCaseStudies('all');
 
-                // Add event listener to dropdown filter
                 if (caseStudyFilter) {
                     caseStudyFilter.addEventListener('change', (e) => {
                         const category = e.target.value;
@@ -304,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const reviewsPerPage = 9;
         let filteredTestimonials = [];
 
-        fetch('../testimonials.json') // Path adjusted since reviews.html is in pages/
+        fetch('../testimonials.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -340,14 +326,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 reviewsContainer.insertAdjacentHTML('beforeend', testimonialCard);
             });
 
-            // Show/hide load more button
             const loadMoreBtn = document.getElementById('loadMoreBtn');
             if (loadMoreBtn) {
                 loadMoreBtn.style.display = end < testimonials.length ? 'block' : 'none';
             }
         }
 
-        // Handle load more button
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', () => {
@@ -356,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Handle filters
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const country = e.target.dataset.country;
@@ -370,6 +353,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentPage = 1;
                 displayTestimonials(filteredTestimonials, currentPage);
             });
+        });
+    }
+
+    // Quick Contact Form WhatsApp Integration for Profile page
+    const quickContactForm = document.getElementById('quickContactForm');
+    if (quickContactForm) {
+        quickContactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            // Get form values
+            const name = document.getElementById('quickName').value.trim();
+            const email = document.getElementById('quickEmail').value.trim();
+            const message = document.getElementById('quickMessage').value.trim();
+
+            // Construct the WhatsApp message
+            const whatsappMessage = `Hi bro,\nI want to Quick Contact with you here is my contact information and message:\nI'm ${name}\nMy email: ${email}\nMessage: ${message}`;
+
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // Your WhatsApp number (replace with your actual number if different)
+            const whatsappNumber = "8801861242008"; // Note: No + sign, just country code + number
+
+            // Construct WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappUrl, '_blank');
         });
     }
 });
@@ -393,6 +404,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.cta-button').forEach(button => {
     button.addEventListener('click', (e) => {
         const service = e.target.parentElement.querySelector('h3')?.textContent || 'our services';
-        alert(`Thank you for your interest in ${service}! We'll contact you soon!`);
+        if (!e.target.closest('#quickContactForm')) { // Exclude Quick Contact form button
+            alert(`Thank you for your interest in ${service}! We'll contact you soon!`);
+        }
     });
 });
