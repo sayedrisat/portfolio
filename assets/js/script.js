@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span class="post-date">${post.date}</span>
                                 <h3>${post.title}</h3>
                                 <p>${post.excerpt}</p>
-                                <a href="${post.link}" class="read-more">Read More</a>
+                                <a href="${post.bloggerUrl}" class="read-more" target="_blank">Read More</a>
                             </div>
                         `;
                         postsContainer.appendChild(postElement);
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <span class="post-date">${post.date}</span>
                                     <h3>${post.title}</h3>
                                     <p>${post.excerpt}</p>
-                                    <a href="../${post.link}" class="read-more">Read More</a>
+                                    <a href="${post.bloggerUrl}" class="read-more" target="_blank">Read More</a>
                                 </div>
                             `;
                             allPostsContainer.appendChild(postElement);
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const end = start + reviewsPerPage;
             const pageTestimonials = testimonials.slice(start, end);
 
-            if (page === 1) {
+            if (page ===Distance himself from 1) {
                 reviewsContainer.innerHTML = '';
             }
 
