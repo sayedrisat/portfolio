@@ -1004,3 +1004,157 @@ body {
     height: 200px;
     object-fit: cover;
 }
+
+/* Reviews Page Specific Styles */
+.reviews-page .content-area {
+    flex: 1;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.reviews-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.reviews-summary {
+    margin-top: 1rem;
+}
+
+.rating-overview {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+.average-rating {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.rating {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stars {
+    color: var(--accent-color);
+    margin: 0.5rem 0;
+}
+
+.total-reviews {
+    color: var(--light-text);
+}
+
+.rating-bars {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.rating-bar span {
+    min-width: 50px;
+}
+
+.bar {
+    flex: 1;
+    height: 8px;
+    background-color: var(--background);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+.reviews-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--light-text);
+    background-color: var(--white);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.load-more {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Responsive Design for Reviews */
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .reviews-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rating-overview {
+        padding: 1rem;
+    }
+
+    .rating {
+        font-size: 1.5rem;
+    }
+}
