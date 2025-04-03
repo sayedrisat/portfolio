@@ -9,7 +9,7 @@ function setTheme(theme) {
     localStorage.setItem('theme', theme);
 }
 
-// Initialize theme on page load
+// Initialize theme and handle all page-specific logic on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
 
@@ -293,6 +293,84 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error loading case studies:', error);
                 caseStudiesContainer.innerHTML = '<p>Failed to load case studies. Please try again later.</p>';
             });
+    }
+
+    // Fetch and render testimonials for Reviews page
+    const reviewsContainer = document.getElementById('reviewsContainer');
+    if (reviewsContainer) {
+        console.log('Attempting to fetch testimonials.json...');
+        let testimonialsData = [];
+        let currentPage = 1;
+        const reviewsPerPage = 9;
+        let filteredTestimonials = [];
+
+        fetch('../testimonials.json') // Path adjusted since reviews.html is in pages/
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Testimonials fetched successfully:', data);
+                testimonialsData = data;
+                filteredTestimonials = [...testimonialsData];
+                displayTestimonials(filteredTestimonials, currentPage);
+            })
+            .catch(error => {
+                console.error('Error loading testimonials:', error);
+                reviewsContainer.innerHTML = '<p>Failed to load testimonials. Please try again later.</p>';
+            });
+
+        function displayTestimonials(testimonials, page) {
+            const start = (page - 1) * reviewsPerPage;
+            const end = start + reviewsPerPage;
+            const pageTestimonials = testimonials.slice(start, end);
+
+            if (page === 1) {
+                reviewsContainer.innerHTML = '';
+            }
+
+            pageTestimonials.forEach(testimonial => {
+                const testimonialCard = `
+                    <div class="review-card" data-country="${testimonial.country}">
+                        <img src="../${testimonial.image}" alt="Client Testimonial" class="testimonial-image">
+                    </div>
+                `;
+                reviewsContainer.insertAdjacentHTML('beforeend', testimonialCard);
+            });
+
+            // Show/hide load more button
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (loadMoreBtn) {
+                loadMoreBtn.style.display = end < testimonials.length ? 'block' : 'none';
+            }
+        }
+
+        // Handle load more button
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                currentPage++;
+                displayTestimonials(filteredTestimonials, currentPage);
+            });
+        }
+
+        // Handle filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const country = e.target.dataset.country;
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                filteredTestimonials = country === 'all' 
+                    ? [...testimonialsData]
+                    : testimonialsData.filter(testimonial => testimonial.country === country);
+                
+                currentPage = 1;
+                displayTestimonials(filteredTestimonials, currentPage);
+            });
+        });
     }
 });
 
