@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburger.innerHTML = "☰"; // Hamburger icon
     
     // Add hamburger to the header
-    const header = document.querySelector("header");
+    const header = document.querySelector("header.header");
     if (header) {
         header.appendChild(hamburger);
     } else {
@@ -14,11 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Get the menu
-    const menu = document.querySelector("nav ul");
+    const menu = document.querySelector("nav.main-nav ul");
     if (!menu) {
-        console.error("Menu (nav ul) not found!");
+        console.error("Menu (nav.main-nav ul) not found!");
         return;
     }
+
+    // Ensure menu is hidden initially
+    menu.classList.remove("active");
 
     // Toggle menu on click
     hamburger.addEventListener("click", function () {
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Close menu when a link is clicked
-    const menuLinks = document.querySelectorAll("nav ul li a");
+    const menuLinks = document.querySelectorAll("nav.main-nav ul li a");
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
             menu.classList.remove("active");
