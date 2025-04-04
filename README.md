@@ -7,7 +7,7 @@ Welcome to my personal portfolio repository. This project showcases my work, inc
 - **assets/**: Contains images, stylesheets, and other static resources.
 - **case-studies/**: Detailed analyses of selected projects I've worked on.
 - **client-logos/**: Logos of clients I've collaborated with.
-- **pages/**: HTML files for various sections of the portfolio.
+- **pages/**: HTML files for various portfolio sections.
 - **posts/**: Blog posts on topics of interest and project updates.
 - **case-studies.json**: Metadata for the case studies.
 - **client-logos.json**: Data related to client logos.
