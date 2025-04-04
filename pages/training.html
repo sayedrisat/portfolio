@@ -11,7 +11,30 @@
 </head>
 <body>
     <header class="header">
-        <!-- Header content will be the same as index.html -->
+        <div class="header-left">
+            <button class="icon-button settings-button">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="icon-button search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <a href="profile.html" class="profile-link">
+                <img src="../assets/images/profile.jpg" alt="Sayed Risat" class="profile-image">
+            </a>
+        </div>
     </header>
 
     <main class="main-content">
@@ -71,8 +94,55 @@
     </main>
 
     <footer class="footer">
-        <!-- Footer content will be the same as index.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="do-not-sell.html">Do Not Sell My Info</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/risatseo/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sayed_risat" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/sayed_risat" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/risatseo" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@risatseo" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="cta-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025, by Sayed Risat, LLC. All rights reserved.</p>
+        </div>
     </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="../assets/js/script.js"></script>
     <script>
