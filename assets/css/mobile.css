@@ -1,63 +1,77 @@
 /* Mobile styles for screens smaller than 768px */
 @media only screen and (max-width: 768px) {
     /* Header adjustments */
-    header {
+    header.header {
         position: relative;
         padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: #1a2526; /* Match your header background */
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
     /* Profile image in header */
-    header img {
+    header.header .header-left img.profile-image {
         width: 40px;
         height: 40px;
     }
 
-    /* Hide the default menu */
-    nav ul {
-        display: none; /* Hide by default */
+    /* Hide the default menu by default */
+    nav.main-nav {
+        width: 0; /* Prevent it from taking space */
+        height: 0;
+        overflow: hidden;
+    }
+
+    nav.main-nav ul {
+        display: none !important; /* Force hide on mobile */
         flex-direction: column;
         position: absolute;
         top: 60px; /* Below the header */
         left: 0;
         width: 100%;
-        background-color: #1a2526; /* Match your header background */
+        background-color: #1a2526; /* Match header background */
         padding: 0;
         margin: 0;
         z-index: 1000;
     }
 
     /* Show menu when active */
-    nav ul.active {
-        display: flex; /* Show when toggled */
+    nav.main-nav ul.active {
+        display: flex !important; /* Show when toggled */
     }
 
     /* Style menu items */
-    nav ul li {
+    nav.main-nav ul li {
         width: 100%;
         text-align: center;
         padding: 15px 0;
         border-bottom: 1px solid #2c3e50;
     }
 
-    nav ul li a {
+    nav.main-nav ul li a {
         color: #fff;
         font-size: 16px;
         font-weight: 500;
-        display: block; /* Ensure full clickable area */
+        display: block;
     }
 
     /* Hamburger button */
-    .hamburger {
-        display: block;
+    button.hamburger {
+        display: block !important; /* Ensure it’s visible */
         font-size: 24px;
         background: none;
         border: none;
         color: #fff;
         cursor: pointer;
         padding: 10px;
+        line-height: 1;
+    }
+
+    /* Hide header-right (search and theme toggle) on mobile for simplicity */
+    .header-right {
+        display: none !important;
     }
 
     /* Hero section (Presence) */
@@ -66,8 +80,8 @@
         text-align: center;
     }
 
-    .hero-section h1 {
-        font-size: 22px; /* Smaller heading */
+    .hero-section h2 {
+        font-size: 22px;
         line-height: 1.2;
     }
 
@@ -76,7 +90,7 @@
         margin: 10px 0;
     }
 
-    .hero-section .btn {
+    .hero-section .cta-button {
         font-size: 14px;
         padding: 8px 16px;
     }
@@ -95,7 +109,7 @@
     }
 
     /* WhatsApp button */
-    .whatsapp-btn {
+    .whatsapp-button {
         bottom: 15px;
         right: 15px;
         width: 45px;
@@ -103,13 +117,23 @@
     }
 }
 
-/* Hide hamburger on desktop */
+/* Desktop styles */
 @media only screen and (min-width: 769px) {
-    .hamburger {
-        display: none;
+    button.hamburger {
+        display: none !important; /* Hide hamburger on desktop */
     }
 
-    nav ul {
+    nav.main-nav {
+        width: auto !important; /* Restore width on desktop */
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    nav.main-nav ul {
         display: flex !important; /* Ensure menu is visible on desktop */
+    }
+
+    .header-right {
+        display: flex !important; /* Ensure header-right is visible on desktop */
     }
 }
