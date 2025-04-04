@@ -1,44 +1,55 @@
 /* Mobile styles for screens smaller than 768px */
 @media only screen and (max-width: 768px) {
-    /* Header and Navigation */
+    /* Header adjustments */
     header {
         position: relative;
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Profile image in header */
+    header img {
+        width: 40px;
+        height: 40px;
     }
 
     /* Hide the default menu */
     nav ul {
-        display: none;
+        display: none; /* Hide by default */
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjust based on your header height */
+        top: 60px; /* Below the header */
         left: 0;
         width: 100%;
-        background-color: #1a2526; /* Match your dark background */
-        padding: 10px 0;
+        background-color: #1a2526; /* Match your header background */
+        padding: 0;
+        margin: 0;
         z-index: 1000;
     }
 
-    /* Show menu when active (toggled by JS) */
+    /* Show menu when active */
     nav ul.active {
-        display: flex;
+        display: flex; /* Show when toggled */
     }
 
-    /* Style menu items for mobile */
+    /* Style menu items */
     nav ul li {
         width: 100%;
         text-align: center;
         padding: 15px 0;
-        border-bottom: 1px solid #2c3e50; /* Subtle separator */
+        border-bottom: 1px solid #2c3e50;
     }
 
     nav ul li a {
         color: #fff;
         font-size: 16px;
         font-weight: 500;
+        display: block; /* Ensure full clickable area */
     }
 
-    /* Hamburger menu button */
+    /* Hamburger button */
     .hamburger {
         display: block;
         font-size: 24px;
@@ -47,48 +58,36 @@
         color: #fff;
         cursor: pointer;
         padding: 10px;
-        position: absolute;
-        right: 10px;
-        top: 10px;
     }
 
-    /* Adjust logo or profile image in header */
-    header img {
-        max-width: 40px; /* Smaller logo/profile image on mobile */
-    }
-
-    /* Main content adjustments */
-    .container {
-        padding: 10px;
-    }
-
-    /* Hero section (Presence section) */
+    /* Hero section (Presence) */
     .hero-section {
-        padding: 20px;
+        padding: 20px 10px;
         text-align: center;
     }
 
     .hero-section h1 {
-        font-size: 24px; /* Smaller heading */
+        font-size: 22px; /* Smaller heading */
+        line-height: 1.2;
     }
 
     .hero-section p {
-        font-size: 14px; /* Smaller paragraph text */
+        font-size: 14px;
         margin: 10px 0;
     }
 
     .hero-section .btn {
         font-size: 14px;
-        padding: 10px 20px;
+        padding: 8px 16px;
     }
 
-    /* Adjust other sections */
+    /* General section adjustments */
     section {
         padding: 20px 10px;
     }
 
     h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     p {
@@ -97,10 +96,10 @@
 
     /* WhatsApp button */
     .whatsapp-btn {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
     }
 }
 
@@ -108,5 +107,9 @@
 @media only screen and (min-width: 769px) {
     .hamburger {
         display: none;
+    }
+
+    nav ul {
+        display: flex !important; /* Ensure menu is visible on desktop */
     }
 }
