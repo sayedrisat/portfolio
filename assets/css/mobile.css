@@ -1,50 +1,110 @@
 /* Mobile styles for screens smaller than 768px */
 @media only screen and (max-width: 768px) {
+    /* Header and Navigation */
+    header {
+        position: relative;
+        padding: 10px;
+    }
+
+    /* Hide the default menu */
     nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Adjust based on your header height */
         left: 0;
         width: 100%;
-        background-color: #333;
+        background-color: #1a2526; /* Match your dark background */
         padding: 10px 0;
+        z-index: 1000;
     }
 
+    /* Show menu when active (toggled by JS) */
     nav ul.active {
         display: flex;
     }
 
+    /* Style menu items for mobile */
     nav ul li {
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 15px 0;
+        border-bottom: 1px solid #2c3e50; /* Subtle separator */
     }
 
     nav ul li a {
-        color: white;
+        color: #fff;
         font-size: 16px;
+        font-weight: 500;
     }
 
+    /* Hamburger menu button */
     .hamburger {
         display: block;
         font-size: 24px;
         background: none;
         border: none;
-        color: white;
+        color: #fff;
         cursor: pointer;
         padding: 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
     }
 
+    /* Adjust logo or profile image in header */
+    header img {
+        max-width: 40px; /* Smaller logo/profile image on mobile */
+    }
+
+    /* Main content adjustments */
     .container {
         padding: 10px;
     }
 
-    h1, h2, p {
-        font-size: 90%;
+    /* Hero section (Presence section) */
+    .hero-section {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-section h1 {
+        font-size: 24px; /* Smaller heading */
+    }
+
+    .hero-section p {
+        font-size: 14px; /* Smaller paragraph text */
+        margin: 10px 0;
+    }
+
+    .hero-section .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    /* Adjust other sections */
+    section {
+        padding: 20px 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
     }
 }
 
+/* Hide hamburger on desktop */
 @media only screen and (min-width: 769px) {
     .hamburger {
         display: none;
