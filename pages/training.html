@@ -33,7 +33,7 @@
 
             <div class="application-form">
                 <h2>Apply for Training</h2>
-                <form id="trainingForm" action="#" method="POST">
+                <form id="trainingForm" class="training-form">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -65,6 +65,7 @@
 
                     <button type="submit" class="submit-button">Submit Application</button>
                 </form>
+                <div id="formMessage" class="form-message"></div>
             </div>
         </section>
     </main>
@@ -74,5 +75,55 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
+    <script>
+        // Handle training form submission
+        document.getElementById('trainingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                experience: formData.get('experience'),
+                message: formData.get('message')
+            };
+
+            // Validate required fields
+            if (!data.name || !data.email || !data.message) {
+                showFormMessage('Please fill out all required fields.', 'error');
+                return;
+            }
+
+            // Construct email subject and body
+            const subject = encodeURIComponent(`Training Application from ${data.name}`);
+            const body = encodeURIComponent(
+                `Name: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `Phone: ${data.phone || 'Not provided'}\n` +
+                `Experience Level: ${data.experience}\n\n` +
+                `Message:\n${data.message}`
+            );
+
+            // Open email client with pre-filled details
+            const mailtoLink = `mailto:sayedrisat.dm@gmail.com?subject=${subject}&body=${body}&from=${data.email}`;
+            window.location.href = mailtoLink;
+
+            // Show success message
+            showFormMessage('Your application has been sent! Check your email client.', 'success');
+            e.target.reset();
+        });
+
+        // Function to show form messages
+        function showFormMessage(message, type) {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = message;
+            messageDiv.className = `form-message ${type}`;
+            setTimeout(() => {
+                messageDiv.textContent = '';
+                messageDiv.className = 'form-message';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
