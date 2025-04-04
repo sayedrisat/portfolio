@@ -2,23 +2,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create hamburger button
     const hamburger = document.createElement("button");
     hamburger.classList.add("hamburger");
-    hamburger.innerHTML = "☰"; // Hamburger icon (you can replace with an SVG or image if preferred)
+    hamburger.innerHTML = "☰"; // Hamburger icon
     
-    // Insert hamburger button in the header
+    // Add hamburger to the header
     const header = document.querySelector("header");
-    header.appendChild(hamburger);
+    if (header) {
+        header.appendChild(hamburger);
+    } else {
+        console.error("Header not found!");
+        return;
+    }
+
+    // Get the menu
+    const menu = document.querySelector("nav ul");
+    if (!menu) {
+        console.error("Menu (nav ul) not found!");
+        return;
+    }
 
     // Toggle menu on click
     hamburger.addEventListener("click", function () {
-        const menu = document.querySelector("nav ul");
         menu.classList.toggle("active");
     });
 
-    // Close menu when a menu item is clicked (optional for better UX)
+    // Close menu when a link is clicked
     const menuLinks = document.querySelectorAll("nav ul li a");
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
-            const menu = document.querySelector("nav ul");
             menu.classList.remove("active");
         });
     });
