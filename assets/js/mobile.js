@@ -1,48 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Create hamburger button
-    const hamburger = document.createElement("button");
-    hamburger.classList.add("hamburger");
-    hamburger.innerHTML = "☰"; // Hamburger icon
-    
-    // Add hamburger to the header
-    const header = document.querySelector("header.header");
-    if (header) {
-        header.appendChild(hamburger);
-    } else {
-        console.error("Header not found!");
+    // Get the hamburger menu button
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    if (!hamburgerMenu) {
+        console.error("Hamburger menu button not found!");
         return;
     }
-
-    // Get the nav (not just the ul)
+    
+    // Get the navigation menu
     const nav = document.querySelector("nav.main-nav");
     if (!nav) {
-        console.error("Nav (nav.main-nav) not found!");
+        console.error("Navigation menu not found!");
         return;
     }
 
-    // Get the menu (ul)
-    const menu = nav.querySelector("ul");
-    if (!menu) {
-        console.error("Menu (nav.main-nav ul) not found!");
-        return;
-    }
-
-    // Ensure nav and menu are hidden initially
-    nav.classList.remove("active");
-    menu.classList.remove("active");
-
-    // Toggle menu on click
-    hamburger.addEventListener("click", function () {
+    // Toggle menu on hamburger click
+    hamburgerMenu.addEventListener("click", function () {
+        hamburgerMenu.classList.toggle("active");
         nav.classList.toggle("active");
-        menu.classList.toggle("active");
     });
 
     // Close menu when a link is clicked
     const menuLinks = document.querySelectorAll("nav.main-nav ul li a");
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
+            hamburgerMenu.classList.remove("active");
             nav.classList.remove("active");
-            menu.classList.remove("active");
         });
     });
+    
+    // Close menu when clicking outside
+    document.addEventListener("click", function(event) {
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickOnHamburger = hamburgerMenu.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains("active")) {
+            hamburgerMenu.classList.remove("active");
+            nav.classList.remove("active");
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener("resize", function() {
+        if (window.innerWidth > 992) {
+            hamburgerMenu.classList.remove("active");
+            nav.classList.remove("active");
+        }
+    });
 });
+

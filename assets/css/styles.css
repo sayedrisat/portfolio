@@ -1,4 +1,5 @@
 @import url("mobile.css");
+
 :root {
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
@@ -42,7 +43,7 @@ body {
     background-color: var(--white);
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     box-shadow: var(--shadow);
     position: sticky;
@@ -50,11 +51,13 @@ body {
     z-index: 100;
 }
 
-.header-left, .header-right {
+.header-left,
+.header-right {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 
 .icon-button {
     background: none;
@@ -72,6 +75,13 @@ body {
     color: var(--primary-color);
 }
 
+/* Navigation Styles */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 .main-nav ul {
     display: flex;
     gap: 2rem;
@@ -87,9 +97,45 @@ body {
     transition: var(--transition);
 }
 
-.main-nav a:hover, .main-nav a.active {
+.main-nav a:hover,
+.main-nav a.active {
     color: var(--primary-color);
     background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger-icon {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Hamburger menu animation */
+.hamburger-menu.active .hamburger-icon:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-icon:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 .profile-image {
@@ -149,7 +195,8 @@ body {
 
 /* Remove grid layout for contact page */
 .main-content.contact-page {
-    display: block; /* Remove the grid layout since there's no sidebar */
+    display: block;
+    /* Remove the grid layout since there's no sidebar */
 }
 
 /* Hero Section */
@@ -208,7 +255,8 @@ body {
     font-size: 0.9rem;
 }
 
-.post-content h2, .post-content h3 {
+.post-content h2,
+.post-content h3 {
     margin: 0.5rem 0;
     color: var(--text-color);
 }
@@ -467,8 +515,10 @@ body {
     border-radius: 1rem;
     box-shadow: var(--shadow);
     margin-bottom: 3rem;
-    text-align: center; /* Center the content */
-    max-width: 600px; /* Limit the width for better appearance */
+    text-align: center;
+    /* Center the content */
+    max-width: 600px;
+    /* Limit the width for better appearance */
     margin-left: auto;
     margin-right: auto;
 }
@@ -492,7 +542,8 @@ body {
     gap: 0.75rem;
     font-size: 1rem;
     color: var(--text-color);
-    word-break: break-all; /* Ensure long text like email wraps */
+    word-break: break-all;
+    /* Ensure long text like email wraps */
 }
 
 .contact-info i {
@@ -624,7 +675,8 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .header-left, .header-right {
+    .header-left,
+    .header-right {
         gap: 0.5rem;
     }
 
@@ -1098,7 +1150,8 @@ body {
     transition: var(--transition);
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
     background-color: var(--primary-color);
     color: var(--white);
     border-color: var(--primary-color);
@@ -1323,20 +1376,25 @@ body {
 
 /* Highlight Full Service Card */
 .pricing-card.full-service {
-    background-color: #fef3c7; /* Light amber color */
-    border: 2px solid #f59e0b; /* Amber border */
+    background-color: #fef3c7;
+    /* Light amber color */
+    border: 2px solid #f59e0b;
+    /* Amber border */
 }
 
 /* Featured Section */
 .featured-section {
-    background-color: #f9fafb; /* Light gray background */
+    background-color: #f9fafb;
+    /* Light gray background */
     padding: 2rem;
     border-radius: 0.5rem;
 }
 
 .pricing-card.featured {
-    background-color: #dcfce7; /* Light green */
-    border: 2px solid #22c55e; /* Green border */
+    background-color: #dcfce7;
+    /* Light green */
+    border: 2px solid #22c55e;
+    /* Green border */
     position: relative;
 }
 
@@ -1368,5 +1426,82 @@ body {
 
     .pricing-card h3 {
         font-size: 1.3rem;
+    }
+}
+
+/* Responsive Navigation Styles */
+@media (max-width: 992px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .main-nav.active {
+        max-height: 500px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 0;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+        background-color: var(--background);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.75rem 1rem;
+    }
+
+    .header-left,
+    .header-right {
+        gap: 0.5rem;
+    }
+
+    .icon-button {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
+
+    .profile-image {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.5rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
     }
 }

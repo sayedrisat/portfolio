@@ -1,76 +1,103 @@
-/* Mobile styles for screens smaller than 768px */
-@media only screen and (max-width: 768px) {
+/* Mobile styles for screens smaller than 992px */
+@media only screen and (max-width: 992px) {
+
     /* Header adjustments */
     header.header {
         position: sticky;
         top: 0;
-        padding: 10px;
+        padding: 10px 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #1a2526; /* Dark background for contrast */
+        background-color: var(--white);
         flex-wrap: nowrap;
         z-index: 100;
     }
 
-    /* Profile image in header */
-    header.header .header-left img.profile-image {
-        width: 40px;
-        height: 40px;
+    /* Hamburger menu button */
+    .hamburger-menu {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
     }
 
-    /* Hide the default menu by default */
+    .hamburger-icon {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--text-color);
+        border-radius: 3px;
+        transition: var(--transition);
+    }
+
+    /* Hamburger menu animation */
+    .hamburger-menu.active .hamburger-icon:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .hamburger-icon:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .hamburger-icon:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Navigation menu */
     nav.main-nav {
-        display: none !important; /* Completely hide the nav */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 1000;
+        transform: translateY(-5%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    nav.main-nav.active {
+        max-height: 500px;
     }
 
     nav.main-nav ul {
-        display: none !important; /* Double ensure the ul is hidden */
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #1a2526;
-        padding: 0;
-        margin: 0;
-        z-index: 1000;
+        padding: 1rem 0;
     }
 
-    /* Show menu when active */
-    nav.main-nav.active {
-        display: block !important; /* Show the nav when active */
-    }
-
-    nav.main-nav ul.active {
-        display: flex !important; /* Show the ul when active */
-    }
-
-    /* Style menu items */
     nav.main-nav ul li {
         width: 100%;
         text-align: center;
-        padding: 15px 0;
-        border-bottom: 1px solid #2c3e50;
+        border-bottom: 1px solid var(--background);
+    }
+
+    nav.main-nav ul li:last-child {
+        border-bottom: none;
     }
 
     nav.main-nav ul li a {
-        color: #fff;
+        display: block;
+        padding: 0.75rem 1rem;
+        color: var(--text-color);
         font-size: 16px;
         font-weight: 500;
-        display: block;
+        border-radius: 0;
     }
 
-    /* Hamburger button */
-    button.hamburger {
-        display: block !important;
-        font-size: 24px;
-        background: none;
-        border: none;
-        color: #fff !important; /* Ensure visibility */
-        cursor: pointer;
-        padding: 10px;
-        line-height: 1;
+    nav.main-nav ul li a:hover,
+    nav.main-nav ul li a.active {
+        background-color: var(--background);
+        color: var(--primary-color);
     }
 
     /* Hide header-right (search and theme toggle) on mobile */
@@ -78,7 +105,7 @@
         display: none !important;
     }
 
-    /* Hero section (Presence) */
+    /* Hero section adjustments */
     .hero-section {
         padding: 20px 10px;
         text-align: center;
@@ -131,13 +158,14 @@
 }
 
 /* Desktop styles */
-@media only screen and (min-width: 769px) {
-    button.hamburger {
+@media only screen and (min-width: 993px) {
+    .hamburger-menu {
         display: none !important;
     }
 
     nav.main-nav {
         display: block !important;
+        max-height: none !important;
     }
 
     nav.main-nav ul {
