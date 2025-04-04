@@ -1,3 +1,7 @@
+const mobileScript = document.createElement("script");
+mobileScript.src = "mobile.js";
+document.head.appendChild(mobileScript);
+
 // Theme management
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
