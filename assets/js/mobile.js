@@ -13,18 +13,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Get the menu
-    const menu = document.querySelector("nav.main-nav ul");
+    // Get the nav (not just the ul)
+    const nav = document.querySelector("nav.main-nav");
+    if (!nav) {
+        console.error("Nav (nav.main-nav) not found!");
+        return;
+    }
+
+    // Get the menu (ul)
+    const menu = nav.querySelector("ul");
     if (!menu) {
         console.error("Menu (nav.main-nav ul) not found!");
         return;
     }
 
-    // Ensure menu is hidden initially
+    // Ensure nav and menu are hidden initially
+    nav.classList.remove("active");
     menu.classList.remove("active");
 
     // Toggle menu on click
     hamburger.addEventListener("click", function () {
+        nav.classList.toggle("active");
         menu.classList.toggle("active");
     });
 
@@ -32,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuLinks = document.querySelectorAll("nav.main-nav ul li a");
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
+            nav.classList.remove("active");
             menu.classList.remove("active");
         });
     });
