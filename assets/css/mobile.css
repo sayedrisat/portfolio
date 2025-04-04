@@ -2,13 +2,15 @@
 @media only screen and (max-width: 768px) {
     /* Header adjustments */
     header.header {
-        position: relative;
+        position: sticky;
+        top: 0;
         padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #1a2526; /* Match your header background */
-        flex-wrap: nowrap; /* Prevent wrapping */
+        background-color: #1a2526; /* Dark background for contrast */
+        flex-wrap: nowrap;
+        z-index: 100;
     }
 
     /* Profile image in header */
@@ -19,27 +21,29 @@
 
     /* Hide the default menu by default */
     nav.main-nav {
-        width: 0; /* Prevent it from taking space */
-        height: 0;
-        overflow: hidden;
+        display: none !important; /* Completely hide the nav */
     }
 
     nav.main-nav ul {
-        display: none !important; /* Force hide on mobile */
+        display: none !important; /* Double ensure the ul is hidden */
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Below the header */
+        top: 60px;
         left: 0;
         width: 100%;
-        background-color: #1a2526; /* Match header background */
+        background-color: #1a2526;
         padding: 0;
         margin: 0;
         z-index: 1000;
     }
 
     /* Show menu when active */
+    nav.main-nav.active {
+        display: block !important; /* Show the nav when active */
+    }
+
     nav.main-nav ul.active {
-        display: flex !important; /* Show when toggled */
+        display: flex !important; /* Show the ul when active */
     }
 
     /* Style menu items */
@@ -59,17 +63,17 @@
 
     /* Hamburger button */
     button.hamburger {
-        display: block !important; /* Ensure it’s visible */
+        display: block !important;
         font-size: 24px;
         background: none;
         border: none;
-        color: #fff;
+        color: #fff !important; /* Ensure visibility */
         cursor: pointer;
         padding: 10px;
         line-height: 1;
     }
 
-    /* Hide header-right (search and theme toggle) on mobile for simplicity */
+    /* Hide header-right (search and theme toggle) on mobile */
     .header-right {
         display: none !important;
     }
@@ -115,25 +119,32 @@
         width: 45px;
         height: 45px;
     }
+
+    /* Adjust posts grid for mobile */
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .post-card img {
+        height: 150px;
+    }
 }
 
 /* Desktop styles */
 @media only screen and (min-width: 769px) {
     button.hamburger {
-        display: none !important; /* Hide hamburger on desktop */
+        display: none !important;
     }
 
     nav.main-nav {
-        width: auto !important; /* Restore width on desktop */
-        height: auto !important;
-        overflow: visible !important;
+        display: block !important;
     }
 
     nav.main-nav ul {
-        display: flex !important; /* Ensure menu is visible on desktop */
+        display: flex !important;
     }
 
     .header-right {
-        display: flex !important; /* Ensure header-right is visible on desktop */
+        display: flex !important;
     }
 }
