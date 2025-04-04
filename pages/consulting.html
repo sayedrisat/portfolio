@@ -11,9 +11,13 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Calendly inline widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
     <header class="header">
+        <!-- Same header structure as other pages -->
         <div class="header-left">
             <button class="icon-button settings-button">
                 <i class="fas fa-cog"></i>
@@ -78,7 +82,13 @@
                         
                         <button type="submit" class="cta-button">Submit Request</button>
                     </form>
-                    <div id="formMessage" class="form-message"></div>
+                </div>
+
+                <div class="calendly-section">
+                    <h2>Schedule a Meeting</h2>
+                    <p>Choose a convenient time for our consultation call</p>
+                    <!-- Calendly inline widget will be loaded here -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/your-calendly-link" style="min-width:320px;height:600px;"></div>
                 </div>
             </div>
 
@@ -137,6 +147,7 @@
         </aside>
     </main>
 
+    <!-- Same footer as other pages -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -179,10 +190,11 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025, by Sayed Risat, LLC. All rights reserved.</p>
+            <p>&copy; 2025, by Sayed Risat, LLC. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Chat Button -->
     <a href="https://wa.me/01861242008" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -190,9 +202,9 @@
     <script src="../assets/js/script.js"></script>
     <script>
         // Handle consultation form submission
-        document.getElementById('consultationForm').addEventListener('submit', (e) => {
+        document.getElementById('consultationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-
+            
             const formData = new FormData(e.target);
             const data = {
                 name: formData.get('name'),
@@ -202,40 +214,44 @@
                 request: formData.get('request')
             };
 
-            // Validate form fields
-            if (!data.name || !data.businessName || !data.businessNiche || !data.email || !data.request) {
-                showFormMessage('Please fill out all required fields.', 'error');
-                return;
+            try {
+                // Send form data to server (you'll need to implement this endpoint)
+                const response = await fetch('/api/consultation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Send confirmation email
+                    await sendConfirmationEmail(data.email);
+                    
+                    alert('Thank you for your consultation request! We will contact you shortly.');
+                    e.target.reset();
+                } else {
+                    throw new Error('Failed to submit form');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your request. Please try again later.');
             }
-
-            // Construct email subject and body
-            const subject = encodeURIComponent(`Consultation Request from ${data.name}`);
-            const body = encodeURIComponent(
-                `Name: ${data.name}\n` +
-                `Business Name: ${data.businessName}\n` +
-                `Business Niche: ${data.businessNiche}\n` +
-                `Email: ${data.email}\n\n` +
-                `Request:\n${data.request}`
-            );
-
-            // Open email client with pre-filled details
-            const mailtoLink = `mailto:sayedrisat.dm@gmail.com?subject=${subject}&body=${body}&from=${data.email}`;
-            window.location.href = mailtoLink;
-
-            // Show success message
-            showFormMessage('Your request has been sent! Check your email client.', 'success');
-            e.target.reset();
         });
 
-        // Function to show form messages
-        function showFormMessage(message, type) {
-            const messageDiv = document.getElementById('formMessage');
-            messageDiv.textContent = message;
-            messageDiv.className = `form-message ${type}`;
-            setTimeout(() => {
-                messageDiv.textContent = '';
-                messageDiv.className = 'form-message';
-            }, 5000);
+        // Function to send confirmation email
+        async function sendConfirmationEmail(email) {
+            try {
+                await fetch('/api/send-confirmation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+            } catch (error) {
+                console.error('Error sending confirmation email:', error);
+            }
         }
     </script>
 </body>
