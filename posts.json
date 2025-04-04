@@ -3,10 +3,9 @@
         "title": "10 Advanced SEO Techniques for 2025",
         "date": "March 22, 2025",
         "excerpt": "In 2025, SEO has evolved beyond traditional keyword optimization. Here are the most effective advanced techniques for better rankings.",
-        "link": "posts/post1.html", // Optional: Can keep or remove
+        "link": "posts/post1.html",
         "category": "Search Engine Optimization",
-        "image": "assets/images/advanced-seo.jpg",
-        "bloggerUrl": "https://bestfacebookadsservice.blogspot.com/2025/03/i-will-manage-your-facebook-and.html"
+        "image": "assets/images/advanced-seo.jpg"
     },
     {
         "title": "Maximizing ROI with Performance Max Campaigns",
@@ -14,8 +13,7 @@
         "excerpt": "Performance Max is revolutionizing PPC advertising. Learn how to optimize your campaigns for maximum return on investment.",
         "link": "posts/post2.html",
         "category": "Pay Per Click",
-        "image": "assets/images/performance-max.jpg",
-        "bloggerUrl": "https://yourblog.blogspot.com/2025/03/maximizing-roi-performance-max.html"
+        "image": "assets/images/performance-max.jpg"
     },
     {
         "title": "Mastering Short-Form Video Content",
@@ -23,8 +21,7 @@
         "excerpt": "Short-form video has become the dominant content format. Learn how to create engaging content that resonates with your audience.",
         "link": "posts/post3.html",
         "category": "Social Media Marketing",
-        "image": "assets/images/short-form-video.jpg",
-        "bloggerUrl": "https://yourblog.blogspot.com/2025/03/mastering-short-form-video.html"
+        "image": "assets/images/short-form-video.jpg"
     },
     {
         "title": "Local SEM: Dominating Your Geographic Market",
@@ -32,8 +29,7 @@
         "excerpt": "Master local search marketing with proven techniques to dominate your local market and attract more customers.",
         "link": "posts/post4.html",
         "category": "Search Engine Marketing",
-        "image": "assets/images/local-sem.jpg",
-        "bloggerUrl": "https://yourblog.blogspot.com/2025/03/local-sem-dominating-market.html"
+        "image": "assets/images/local-sem.jpg"
     },
     {
         "title": "AI-Powered Content Creation: A Complete Guide",
@@ -41,8 +37,7 @@
         "excerpt": "Leverage AI tools for better content marketing results and create high-quality content at scale.",
         "link": "posts/post5.html",
         "category": "Content Marketing",
-        "image": "assets/images/ai-content.jpg",
-        "bloggerUrl": "https://yourblog.blogspot.com/2025/03/ai-powered-content-creation.html"
+        "image": "assets/images/ai-content.jpg"
     },
     {
         "title": "The Future of Social Media Advertising in 2025",
@@ -50,8 +45,7 @@
         "excerpt": "Explore upcoming trends in social media advertising and how to stay ahead of the curve in 2025.",
         "link": "posts/post6.html",
         "category": "Social Media Marketing",
-        "image": "assets/images/social-media-advertising.jpg",
-        "bloggerUrl": "https://yourblog.blogspot.com/2025/03/future-social-media-advertising.html"
+        "image": "assets/images/social-media-advertising.jpg"
     },
     {
         "title": "SEO for E-commerce: Boosting Sales in 2025",
@@ -59,7 +53,6 @@
         "excerpt": "Learn SEO strategies tailored for e-commerce websites to increase visibility and drive more sales.",
         "link": "posts/post7.html",
         "category": "Search Engine Optimization",
-        "image": "assets/images/ecommerce-seo.jpg",
-        "bloggerUrl": "https://yourblog.blogspot.com/2025/03/seo-ecommerce-boosting-sales.html"
+        "image": "assets/images/ecommerce-seo.jpg"
     }
 ]
