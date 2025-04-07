@@ -37,10 +37,10 @@
                 <button class="icon-button search-button">
                     <i class="fas fa-search"></i>
                 </button>
-                <button class="icon-button settings-button" id="themeToggle">
+                <button class="icon-button settings-button" id="themeToggleMobile">
                     <i class="fas fa-cog"></i>
                 </button>
-                <div class="theme-popup" id="themePopup">
+                <div class="theme-popup" id="themePopupMobile">
                     <button class="theme-option" data-theme="light">
                         <i class="fas fa-sun"></i> Light Mode
                     </button>
@@ -50,6 +50,24 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Search and Settings for Desktop -->
+        <div class="desktop-header-options">
+            <button class="icon-button search-button" id="searchButtonDesktop">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="icon-button settings-button" id="themeToggleDesktop">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div class="theme-popup" id="themePopupDesktop">
+                <button class="theme-option" data-theme="light">
+                    <i class="fas fa-sun"></i> Light Mode
+                </button>
+                <button class="theme-option" data-theme="dark">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
+            </div>
+        </div>
 
         <!-- Profile image (Right Side) -->
         <div class="header-right">
@@ -179,9 +197,13 @@
     <script src="assets/js/mobile.js"></script>
     <script>
         // Toggle hamburger menu
-        document.querySelector('.hamburger-menu').addEventListener('click', () => {
-            document.querySelector('.hamburger-menu').classList.toggle('active');
-            document.querySelector('.main-nav').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('.main-nav');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
         });
     </script>
 </body>
