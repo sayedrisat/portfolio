@@ -1,6 +1,5 @@
 /* Mobile styles for screens smaller than 992px */
 @media only screen and (max-width: 992px) {
-
     /* Header adjustments */
     header.header {
         position: sticky;
@@ -14,7 +13,7 @@
         z-index: 100;
     }
 
-    /* Hamburger menu button */
+    /* Hamburger menu button (Left Side) */
     .hamburger-menu {
         display: flex !important;
         flex-direction: column;
@@ -26,6 +25,7 @@
         cursor: pointer;
         padding: 0;
         z-index: 1001;
+        order: 1; /* Ensure it stays on the left */
     }
 
     .hamburger-icon {
@@ -63,11 +63,12 @@
         overflow: hidden;
         z-index: 1000;
         transform: translateY(-5%);
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
     }
 
     nav.main-nav.active {
-        max-height: 500px;
+        max-height: 500px; /* Adjust as needed */
+        padding: 1rem 0;
     }
 
     nav.main-nav ul {
@@ -100,9 +101,55 @@
         color: var(--primary-color);
     }
 
-    /* Hide header-right (search and theme toggle) on mobile */
+    /* Mobile header options (search and settings) */
+    .mobile-header-options {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 1rem;
+    }
+
+    .icon-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        color: var(--text-color);
+    }
+
+    .theme-popup {
+        display: none;
+        position: absolute;
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        padding: 10px;
+        z-index: 1002;
+    }
+
+    .settings-button:hover + .theme-popup,
+    .theme-popup:hover {
+        display: block;
+    }
+
+    .theme-option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Profile image (Right Side) */
     .header-right {
-        display: none !important;
+        order: 2; /* Ensure it stays on the right */
+    }
+
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
     }
 
     /* Hero section adjustments */
@@ -165,11 +212,19 @@
 
     nav.main-nav {
         display: block !important;
+        position: static;
         max-height: none !important;
+        box-shadow: none;
+        transform: none;
+        padding: 0;
     }
 
     nav.main-nav ul {
         display: flex !important;
+    }
+
+    .mobile-header-options {
+        display: none !important; /* Hide search/settings in desktop nav */
     }
 
     .header-right {
