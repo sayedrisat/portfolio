@@ -103,6 +103,10 @@
 
     /* Theme toggle in mobile (inside hamburger menu) */
     .theme-toggle {
+        display: none; /* Hide the desktop theme toggle in mobile view */
+    }
+
+    .mobile-theme-toggle {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -253,6 +257,10 @@
         align-items: center;
         gap: 10px;
         order: 1;
+    }
+
+    .mobile-theme-toggle {
+        display: none; /* Hide the mobile theme toggle in desktop view */
     }
 
     .theme-label {
