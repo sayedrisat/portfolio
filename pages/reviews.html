@@ -9,28 +9,33 @@
     <meta property="og:image" content="../assets/images/reviews-cover.jpg">
     <title>Client Reviews | Sayed Risat</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css"> <!-- Added mobile.css for mobile styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
+        <!-- Hamburger menu button for mobile (Left Side) -->
+        <button class="hamburger-menu" aria-label="Toggle navigation menu">
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <!-- Left side of the header (Theme toggle for desktop) -->
         <div class="header-left">
-            <button class="icon-button settings-button">
-                <i class="fas fa-cog"></i>
-            </button>
-            <div class="theme-popup">
-                <button class="theme-option" data-theme="light">
-                    <i class="fas fa-sun"></i> Light Mode
-                </button>
-                <button class="theme-option" data-theme="dark">
-                    <i class="fas fa-moon"></i> Dark Mode
-                </button>
+            <!-- Light/Dark Mode Toggle for Desktop -->
+            <div class="theme-toggle">
+                <span class="theme-label">light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="slider">o=</span>
+                </label>
+                <span class="theme-label">dark</span>
             </div>
-            <button class="icon-button search-button">
-                <i class="fas fa-search"></i>
-            </button>
         </div>
-        
+
+        <!-- Navigation menu -->
         <nav class="main-nav">
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -40,8 +45,18 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <!-- Light/Dark Mode Toggle for Mobile (inside hamburger menu) -->
+            <div class="theme-toggle mobile-theme-toggle">
+                <span class="theme-label">light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitchMobile">
+                    <span class="slider">o=</span>
+                </label>
+                <span class="theme-label">dark</span>
+            </div>
         </nav>
 
+        <!-- Profile image (Right Side) -->
         <div class="header-right">
             <a href="profile.html" class="profile-link">
                 <img src="../assets/images/profile.jpg" alt="Sayed Risat" class="profile-image">
@@ -197,5 +212,6 @@
     </a>
 
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/mobile.js"></script> <!-- Added mobile.js for mobile functionality -->
 </body>
 </html>
