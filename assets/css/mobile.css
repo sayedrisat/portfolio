@@ -37,7 +37,6 @@
         transition: var(--transition);
     }
 
-    /* Hamburger menu animation */
     .hamburger-menu.active .hamburger-icon:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -100,7 +99,7 @@
         color: var(--primary-color);
     }
 
-    /* Show only profile image on right in mobile */
+    /* Hide all icons on mobile */
     .header-right {
         display: flex;
         align-items: center;
@@ -109,11 +108,11 @@
     }
 
     .header-right .icon-button {
-        display: none; /* hide settings/search buttons */
+        display: none !important; /* hide settings and search icons */
     }
 
-    .profile-link {
-        display: block;
+    .header-right .profile-link {
+        display: block !important;
     }
 
     .profile-image {
@@ -193,12 +192,12 @@
     .header-right {
         display: flex !important;
     }
-}
 
-/* Extra small screens (optional) */
-@media screen and (max-width: 480px) {
-    .profile-image {
-        width: 28px;
-        height: 28px;
+    .header-right .icon-button {
+        display: flex !important;
+    }
+
+    .header-right .profile-link {
+        display: block !important;
     }
 }
