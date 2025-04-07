@@ -22,7 +22,7 @@
             <span class="hamburger-icon"></span>
         </button>
 
-        <!-- Navigation menu (includes search and settings in mobile) -->
+        <!-- Navigation menu -->
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
@@ -32,41 +32,16 @@
                 <li><a href="pages/services.html">Services</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
             </ul>
-            <!-- Search and Settings inside nav for mobile -->
-            <div class="mobile-header-options">
-                <button class="icon-button search-button">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="icon-button settings-button" id="themeToggleMobile">
-                    <i class="fas fa-cog"></i>
-                </button>
-                <div class="theme-popup" id="themePopupMobile">
-                    <button class="theme-option" data-theme="light">
-                        <i class="fas fa-sun"></i> Light Mode
-                    </button>
-                    <button class="theme-option" data-theme="dark">
-                        <i class="fas fa-moon"></i> Dark Mode
-                    </button>
-                </div>
-            </div>
         </nav>
 
-        <!-- Search and Settings for Desktop -->
-        <div class="desktop-header-options">
-            <button class="icon-button search-button" id="searchButtonDesktop">
-                <i class="fas fa-search"></i>
-            </button>
-            <button class="icon-button settings-button" id="themeToggleDesktop">
-                <i class="fas fa-cog"></i>
-            </button>
-            <div class="theme-popup" id="themePopupDesktop">
-                <button class="theme-option" data-theme="light">
-                    <i class="fas fa-sun"></i> Light Mode
-                </button>
-                <button class="theme-option" data-theme="dark">
-                    <i class="fas fa-moon"></i> Dark Mode
-                </button>
-            </div>
+        <!-- Light/Dark Mode Toggle for Desktop -->
+        <div class="theme-toggle">
+            <span class="theme-label">light</span>
+            <label class="switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider">o=</span>
+            </label>
+            <span class="theme-label">dark</span>
         </div>
 
         <!-- Profile image (Right Side) -->
@@ -89,9 +64,7 @@
             <section class="recent-posts">
                 <h2>Recent Posts</h2>
                 <div class="posts-grid" id="posts-container">
-                    <!-- Latest 4 posts will be dynamically loaded here -->
-                </div>
-            </section>
+            </div>
         </section>
 
         <aside class="sidebar">
