@@ -100,9 +100,27 @@
         color: var(--primary-color);
     }
 
-    /* Hide header-right (search and theme toggle) on mobile */
+    /* Show only profile image on right in mobile */
     .header-right {
-        display: none !important;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        gap: 10px;
+    }
+
+    .header-right .icon-button {
+        display: none; /* hide settings/search buttons */
+    }
+
+    .profile-link {
+        display: block;
+    }
+
+    .profile-image {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     /* Hero section adjustments */
@@ -174,5 +192,13 @@
 
     .header-right {
         display: flex !important;
+    }
+}
+
+/* Extra small screens (optional) */
+@media screen and (max-width: 480px) {
+    .profile-image {
+        width: 28px;
+        height: 28px;
     }
 }
