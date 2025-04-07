@@ -22,6 +22,19 @@
             <span class="hamburger-icon"></span>
         </button>
 
+        <!-- Left side of the header (Theme toggle for desktop) -->
+        <div class="header-left">
+            <!-- Light/Dark Mode Toggle for Desktop -->
+            <div class="theme-toggle">
+                <span class="theme-label">light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="slider">o=</span>
+                </label>
+                <span class="theme-label">dark</span>
+            </div>
+        </div>
+
         <!-- Navigation menu -->
         <nav class="main-nav">
             <ul>
@@ -32,17 +45,16 @@
                 <li><a href="pages/services.html">Services</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
             </ul>
+            <!-- Light/Dark Mode Toggle for Mobile (inside hamburger menu) -->
+            <div class="theme-toggle mobile-theme-toggle">
+                <span class="theme-label">light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitchMobile">
+                    <span class="slider">o=</span>
+                </label>
+                <span class="theme-label">dark</span>
+            </div>
         </nav>
-
-        <!-- Light/Dark Mode Toggle for Desktop -->
-        <div class="theme-toggle">
-            <span class="theme-label">light</span>
-            <label class="switch">
-                <input type="checkbox" id="themeSwitch">
-                <span class="slider">o=</span>
-            </label>
-            <span class="theme-label">dark</span>
-        </div>
 
         <!-- Profile image (Right Side) -->
         <div class="header-right">
