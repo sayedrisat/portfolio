@@ -1,7 +1,7 @@
 /* Mobile styles for screens smaller than 992px */
 @media only screen and (max-width: 992px) {
 
-    /* Header adjustments */
+    /* Header layout */
     header.header {
         position: sticky;
         top: 0;
@@ -10,11 +10,10 @@
         justify-content: space-between;
         align-items: center;
         background-color: var(--white);
-        flex-wrap: nowrap;
         z-index: 100;
     }
 
-    /* Hamburger menu button */
+    /* Hamburger menu on the left */
     .hamburger-menu {
         display: flex !important;
         flex-direction: column;
@@ -47,6 +46,29 @@
 
     .hamburger-menu.active .hamburger-icon:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Profile image on right */
+    .header-right {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .header-right .icon-button {
+        display: none !important; /* hide search/settings */
+    }
+
+    .header-right .profile-link {
+        display: block !important;
+        margin-left: auto;
+    }
+
+    .profile-image {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     /* Navigation menu */
@@ -99,29 +121,6 @@
         color: var(--primary-color);
     }
 
-    /* Hide all icons on mobile */
-    .header-right {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-        gap: 10px;
-    }
-
-    .header-right .icon-button {
-        display: none !important; /* hide settings and search icons */
-    }
-
-    .header-right .profile-link {
-        display: block !important;
-    }
-
-    .profile-image {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
     /* Hero section adjustments */
     .hero-section {
         padding: 20px 10px;
@@ -143,7 +142,6 @@
         padding: 8px 16px;
     }
 
-    /* General section adjustments */
     section {
         padding: 20px 10px;
     }
@@ -156,7 +154,6 @@
         font-size: 14px;
     }
 
-    /* WhatsApp button */
     .whatsapp-button {
         bottom: 15px;
         right: 15px;
@@ -164,7 +161,6 @@
         height: 45px;
     }
 
-    /* Adjust posts grid for mobile */
     .posts-grid {
         grid-template-columns: 1fr;
     }
