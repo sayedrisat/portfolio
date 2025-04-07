@@ -15,23 +15,14 @@
 </head>
 <body>
     <header class="header">
-        <div class="header-left">
-            <button class="icon-button settings-button" id="themeToggle">
-                <i class="fas fa-cog"></i>
-            </button>
-            <div class="theme-popup" id="themePopup">
-                <button class="theme-option" data-theme="light">
-                    <i class="fas fa-sun"></i> Light Mode
-                </button>
-                <button class="theme-option" data-theme="dark">
-                    <i class="fas fa-moon"></i> Dark Mode
-                </button>
-            </div>
-            <button class="icon-button search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        
+        <!-- Hamburger menu button for mobile (Left Side) -->
+        <button class="hamburger-menu" aria-label="Toggle navigation menu">
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <!-- Navigation menu (includes search and settings in mobile) -->
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
@@ -41,20 +32,31 @@
                 <li><a href="pages/services.html">Services</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
             </ul>
+            <!-- Search and Settings inside nav for mobile -->
+            <div class="mobile-header-options">
+                <button class="icon-button search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-button settings-button" id="themeToggle">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="theme-popup" id="themePopup">
+                    <button class="theme-option" data-theme="light">
+                        <i class="fas fa-sun"></i> Light Mode
+                    </button>
+                    <button class="theme-option" data-theme="dark">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                </div>
+            </div>
         </nav>
 
+        <!-- Profile image (Right Side) -->
         <div class="header-right">
             <a href="pages/profile.html" class="profile-link">
                 <img src="assets/images/profile.jpg" alt="Sayed Risat" class="profile-image">
             </a>
         </div>
-        
-        <!-- Hamburger menu button for mobile -->
-        <button class="hamburger-menu" aria-label="Toggle navigation menu">
-            <span class="hamburger-icon"></span>
-            <span class="hamburger-icon"></span>
-            <span class="hamburger-icon"></span>
-        </button>
     </header>
 
     <main class="main-content">
@@ -175,5 +177,12 @@
 
     <script src="assets/js/script.js"></script>
     <script src="assets/js/mobile.js"></script>
+    <script>
+        // Toggle hamburger menu
+        document.querySelector('.hamburger-menu').addEventListener('click', () => {
+            document.querySelector('.hamburger-menu').classList.toggle('active');
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
