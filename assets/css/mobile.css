@@ -1,7 +1,7 @@
 /* Mobile styles for screens smaller than 992px */
 @media only screen and (max-width: 992px) {
 
-    /* Header layout */
+    /* Header adjustments */
     header.header {
         position: sticky;
         top: 0;
@@ -10,10 +10,11 @@
         justify-content: space-between;
         align-items: center;
         background-color: var(--white);
+        flex-wrap: nowrap;
         z-index: 100;
     }
 
-    /* Hamburger menu on the left */
+    /* Hamburger menu button */
     .hamburger-menu {
         display: flex !important;
         flex-direction: column;
@@ -36,6 +37,7 @@
         transition: var(--transition);
     }
 
+    /* Hamburger menu animation */
     .hamburger-menu.active .hamburger-icon:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -46,29 +48,6 @@
 
     .hamburger-menu.active .hamburger-icon:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
-    }
-
-    /* Profile image on right */
-    .header-right {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-    }
-
-    .header-right .icon-button {
-        display: none !important; /* hide search/settings */
-    }
-
-    .header-right .profile-link {
-        display: block !important;
-        margin-left: auto;
-    }
-
-    .profile-image {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
     }
 
     /* Navigation menu */
@@ -121,6 +100,11 @@
         color: var(--primary-color);
     }
 
+    /* Hide header-right (search and theme toggle) on mobile */
+    .header-right {
+        display: none !important;
+    }
+
     /* Hero section adjustments */
     .hero-section {
         padding: 20px 10px;
@@ -142,6 +126,7 @@
         padding: 8px 16px;
     }
 
+    /* General section adjustments */
     section {
         padding: 20px 10px;
     }
@@ -154,6 +139,7 @@
         font-size: 14px;
     }
 
+    /* WhatsApp button */
     .whatsapp-button {
         bottom: 15px;
         right: 15px;
@@ -161,6 +147,7 @@
         height: 45px;
     }
 
+    /* Adjust posts grid for mobile */
     .posts-grid {
         grid-template-columns: 1fr;
     }
@@ -187,13 +174,5 @@
 
     .header-right {
         display: flex !important;
-    }
-
-    .header-right .icon-button {
-        display: flex !important;
-    }
-
-    .header-right .profile-link {
-        display: block !important;
     }
 }
