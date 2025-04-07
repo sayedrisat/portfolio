@@ -26,6 +26,7 @@
         padding: 0;
         z-index: 1001;
         order: 1; /* Ensure it stays on the left */
+        margin-right: auto; /* Push it fully to the left */
     }
 
     .hamburger-icon {
