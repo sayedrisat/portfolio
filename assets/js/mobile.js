@@ -49,27 +49,39 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Theme toggle functionality
-    const themeSwitch = document.getElementById("themeSwitch");
-    if (themeSwitch) {
-        // Check for saved theme in localStorage
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            document.documentElement.setAttribute("data-theme", savedTheme);
-            if (savedTheme === "dark") {
-                themeSwitch.checked = true;
-            }
-        }
+    // Theme toggle functionality for both desktop and mobile
+    const themeSwitch = document.getElementById("themeSwitch"); // Desktop toggle
+    const themeSwitchMobile = document.getElementById("themeSwitchMobile"); // Mobile toggle
 
-        // Toggle theme on switch change
+    // Check for saved theme in localStorage and apply to both toggles
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "dark") {
+            if (themeSwitch) themeSwitch.checked = true;
+            if (themeSwitchMobile) themeSwitchMobile.checked = true;
+        }
+    }
+
+    // Toggle theme on desktop switch change
+    if (themeSwitch) {
         themeSwitch.addEventListener("change", function () {
-            if (this.checked) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                localStorage.setItem("theme", "dark");
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                localStorage.setItem("theme", "light");
-            }
+            const newTheme = this.checked ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            // Sync the mobile toggle
+            if (themeSwitchMobile) themeSwitchMobile.checked = this.checked;
+        });
+    }
+
+    // Toggle theme on mobile switch change
+    if (themeSwitchMobile) {
+        themeSwitchMobile.addEventListener("change", function () {
+            const newTheme = this.checked ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            // Sync the desktop toggle
+            if (themeSwitch) themeSwitch.checked = this.checked;
         });
     }
 });
