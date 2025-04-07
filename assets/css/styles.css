@@ -58,23 +58,6 @@ body {
     gap: 1rem;
 }
 
-
-.icon-button {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: var(--transition);
-}
-
-.icon-button:hover {
-    background-color: var(--background);
-    color: var(--primary-color);
-}
-
 /* Navigation Styles */
 .main-nav {
     display: flex;
@@ -150,40 +133,6 @@ body {
 
 .profile-image:hover {
     transform: scale(1.1);
-}
-
-/* Theme Toggle Styles */
-.theme-popup {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--white);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    padding: 0.5rem;
-    display: none;
-    z-index: 1000;
-}
-
-.theme-popup.show {
-    display: block;
-}
-
-.theme-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    border: none;
-    background: none;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.theme-option:hover {
-    background-color: var(--background);
 }
 
 /* Main Content Layout */
@@ -957,7 +906,7 @@ body {
 }
 
 .footer-section ul {
-    list-style: none;
+    list: none;
 }
 
 .footer-section ul li {
@@ -1482,11 +1431,6 @@ body {
     .header-left,
     .header-right {
         gap: 0.5rem;
-    }
-
-    .icon-button {
-        font-size: 1rem;
-        padding: 0.4rem;
     }
 
     .profile-image {
