@@ -14,9 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Toggle menu on hamburger click
-    hamburgerMenu.addEventListener("click", function () {
+    hamburgerMenu.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent the click from bubbling up to the document
         hamburgerMenu.classList.toggle("active");
         nav.classList.toggle("active");
+        console.log("Hamburger clicked! Menu is now:", nav.classList.contains("active") ? "open" : "closed"); // Debugging
     });
 
     // Close menu when a link is clicked
@@ -47,4 +49,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
