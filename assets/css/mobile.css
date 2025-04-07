@@ -62,13 +62,13 @@
         max-height: 0;
         overflow: hidden;
         z-index: 1000;
-        transform: translateY(-5%);
         transition: max-height 0.3s ease, opacity 0.3s ease;
     }
 
     nav.main-nav.active {
-        max-height: 500px; /* Adjust as needed */
+        max-height: 500px; /* Ensure this is enough to show all content */
         padding: 1rem 0;
+        opacity: 1;
     }
 
     nav.main-nav ul {
@@ -107,6 +107,11 @@
         justify-content: center;
         gap: 20px;
         padding: 1rem;
+    }
+
+    /* Hide desktop header options in mobile */
+    .desktop-header-options {
+        display: none !important;
     }
 
     .icon-button {
@@ -227,7 +232,16 @@
         display: none !important; /* Hide search/settings in desktop nav */
     }
 
+    /* Show desktop header options */
+    .desktop-header-options {
+        display: flex !important;
+        align-items: center;
+        gap: 15px;
+        order: 1;
+    }
+
     .header-right {
         display: flex !important;
+        order: 2;
     }
 }
