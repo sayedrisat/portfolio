@@ -6,28 +6,33 @@
     <meta name="description" content="Discover how cancel culture can destroy a brand overnight. Explore the Ghorer Bazar case study and global examples like D&G and Gillette. Learn key lessons in brand reputation, crisis management, and consumer power in the age of social media. - Sayed Risat">
     <title>Brand Cancel Culture" — How Can a Single Misstep Ruin a Brand?</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css"> <!-- Added mobile.css for mobile styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
+        <!-- Hamburger menu button for mobile (Left Side) -->
+        <button class="hamburger-menu" aria-label="Toggle navigation menu">
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <!-- Left side of the header (Theme toggle for desktop) -->
         <div class="header-left">
-            <button class="icon-button settings-button">
-                <i class="fas fa-cog"></i>
-            </button>
-            <div class="theme-popup">
-                <button class="theme-option" data-theme="light">
-                    <i class="fas fa-sun"></i> Light Mode
-                </button>
-                <button class="theme-option" data-theme="dark">
-                    <i class="fas fa-moon"></i> Dark Mode
-                </button>
+            <!-- Light/Dark Mode Toggle for Desktop -->
+            <div class="theme-toggle">
+                <span class="theme-label">light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="slider">o=</span>
+                </label>
+                <span class="theme-label">dark</span>
             </div>
-            <button class="icon-button search-button">
-                <i class="fas fa-search"></i>
-            </button>
         </div>
-        
+
+        <!-- Navigation menu -->
         <nav class="main-nav">
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -36,8 +41,18 @@
                 <li><a href="../pages/reviews.html">Reviews</a></li>
                 <li><a href="../pages/contact.html">Contact</a></li>
             </ul>
+            <!-- Light/Dark Mode Toggle for Mobile (inside hamburger menu) -->
+            <div class="theme-toggle mobile-theme-toggle">
+                <span class="theme-label">light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitchMobile">
+                    <span class="slider">o=</span>
+                </label>
+                <span class="theme-label">dark</span>
+            </div>
         </nav>
 
+        <!-- Profile image (Right Side) -->
         <div class="header-right">
             <a href="../pages/profile.html" class="profile-link">
                 <img src="../assets/images/profile.jpg" alt="Sayed Risat" class="profile-image">
@@ -55,59 +70,59 @@
             </div>
             <img src="../assets/images/brand-cancel-culture-marketing-post.jpg" alt="Advanced SEO Techniques" class="post-image">
             <article>
-        <h1>"Brand Cancel Culture" — How Can a Single Misstep Ruin a Brand?</h1>
-        <h2>A Recent Issue from Ghorer Bazar – Case Study</h2>
+                <h1>"Brand Cancel Culture" — How Can a Single Misstep Ruin a Brand?</h1>
+                <h2>A Recent Issue from Ghorer Bazar – Case Study</h2>
 
-        <p>In today’s world of brand management, Cancel Culture has emerged as a new and powerful concept. Many call it <strong>“Brand Fragility in the Age of Public Scrutiny.”</strong> Simply put, it can be defined as:</p>
+                <p>In today’s world of brand management, Cancel Culture has emerged as a new and powerful concept. Many call it <strong>“Brand Fragility in the Age of Public Scrutiny.”</strong> Simply put, it can be defined as:</p>
 
-        <blockquote>
-            <p>“Cancel Culture in Branding” refers to the social backlash where, if a brand or its representative makes a controversial comment, act, or takes an unpopular stance in public, people quickly boycott the brand through social media and lose trust in it—leading to a rapid collapse in sales, credibility, and social acceptance.</p>
-        </blockquote>
+                <blockquote>
+                    <p>“Cancel Culture in Branding” refers to the social backlash where, if a brand or its representative makes a controversial comment, act, or takes an unpopular stance in public, people quickly boycott the brand through social media and lose trust in it—leading to a rapid collapse in sales, credibility, and social acceptance.</p>
+                </blockquote>
 
-        <h3>There are three critical aspects of this theory:</h3>
+                <h3>There are three critical aspects of this theory:</h3>
 
-        <h4>1. Public-Driven Accountability:</h4>
-        <p>Previously, media or regulatory bodies were the main watchdogs of brands. Now, consumers themselves hold brands accountable through social media, demanding explanations and consequences directly.</p>
+                <h4>1. Public-Driven Accountability:</h4>
+                <p>Previously, media or regulatory bodies were the main watchdogs of brands. Now, consumers themselves hold brands accountable through social media, demanding explanations and consequences directly.</p>
 
-        <h4>2. Brand-Persona Overlap:</h4>
-        <p>The personal opinions or behaviors of a CEO, influencer, or brand ambassador often blend so closely with the brand’s identity that a single poor decision by them can severely damage the entire brand.</p>
+                <h4>2. Brand-Persona Overlap:</h4>
+                <p>The personal opinions or behaviors of a CEO, influencer, or brand ambassador often blend so closely with the brand’s identity that a single poor decision by them can severely damage the entire brand.</p>
 
-        <h4>3. Rapid Chain Reaction:</h4>
-        <p>A screenshot, a video clip, or even a comment can go viral in moments, spreading like wildfire across the internet—causing devastating effects on the brand’s reputation.</p>
+                <h4>3. Rapid Chain Reaction:</h4>
+                <p>A screenshot, a video clip, or even a comment can go viral in moments, spreading like wildfire across the internet—causing devastating effects on the brand’s reputation.</p>
 
-        <h2>Ghorer Bazar and Cancel Culture: A Real-Life Example</h2>
+                <h2>Ghorer Bazar and Cancel Culture: A Real-Life Example</h2>
 
-        <p>In the case of Ghorer Bazar, we see a textbook execution of this theory:</p>
-        <ul>
-            <li>The brand was built around a well-known public figure.</li>
-            <li>A controversial post emerged.</li>
-            <li>Public backlash and mass reporting followed.</li>
-            <li>The brand’s presence across social media platforms disappeared.</li>
-            <li>The brand’s image crumbled in an instant.</li>
-        </ul>
+                <p>In the case of Ghorer Bazar, we see a textbook execution of this theory:</p>
+                <ul>
+                    <li>The brand was built around a well-known public figure.</li>
+                    <li>A controversial post emerged.</li>
+                    <li>Public backlash and mass reporting followed.</li>
+                    <li>The brand’s presence across social media platforms disappeared.</li>
+                    <li>The brand’s image crumbled in an instant.</li>
+                </ul>
 
-        <p>This is not just a case study—it’s a cautionary tale for every brand looking to the future.</p>
+                <p>This is not just a case study—it’s a cautionary tale for every brand looking to the future.</p>
 
-        <h3>Beyond Ghorer Bazar, other global examples include:</h3>
+                <h3>Beyond Ghorer Bazar, other global examples include:</h3>
 
-        <h4>Dolce & Gabbana (D&G), China</h4>
-        <p>In 2018, D&G released an ad that disrespected Chinese culture. The reaction was swift—celebrities distanced themselves, and many online retailers pulled their products from shelves.</p>
+                <h4>Dolce & Gabbana (D&G), China</h4>
+                <p>In 2018, D&G released an ad that disrespected Chinese culture. The reaction was swift—celebrities distanced themselves, and many online retailers pulled their products from shelves.</p>
 
-        <p><strong>How they recovered:</strong><br>
-        The brand quickly issued an apology, released a video message, and made a culturally sensitive comeback, placing greater importance on understanding the Chinese market.</p>
+                <p><strong>How they recovered:</strong><br>
+                The brand quickly issued an apology, released a video message, and made a culturally sensitive comeback, placing greater importance on understanding the Chinese market.</p>
 
-        <h4>Gillette: “The Best Men Can Be” Campaign</h4>
-        <p>Gillette’s campaign tackled toxic masculinity, but parts of the audience reacted negatively.</p>
+                <h4>Gillette: “The Best Men Can Be” Campaign</h4>
+                <p>Gillette’s campaign tackled toxic masculinity, but parts of the audience reacted negatively.</p>
 
-        <p><strong>How they managed:</strong><br>
-        Gillette didn’t back down. They clarified their message and positioned themselves as a value-driven brand committed to social responsibility.</p>
+                <p><strong>How they managed:</strong><br>
+                Gillette didn’t back down. They clarified their message and positioned themselves as a value-driven brand committed to social responsibility.</p>
 
-        <h3>(With theory highlights):</h3>
-        <p>Modern branding is no longer just about products or services—it’s deeply tied to human values, cultural sensitivity, and responsible behavior. Cancel Culture has created a new branding reality where even a single word can lead to the downfall of an entire brand.</p>
+                <h3>(With theory highlights):</h3>
+                <p>Modern branding is no longer just about products or services—it’s deeply tied to human values, cultural sensitivity, and responsible behavior. Cancel Culture has created a new branding reality where even a single word can lead to the downfall of an entire brand.</p>
 
-        <p><strong>Hashtags:</strong></p>
-        <p>#brandcancelculture #cancelculture #marketingstrategy #casestudy #brandreputation #socialmediaimpact #crisismanagement #brandfragility #marketingcase #digitalmarketing #consumerpower #ghorerbazar #sayedrisat</p>
-    </article>
+                <p><strong>Hashtags:</strong></p>
+                <p>#brandcancelculture #cancelculture #marketingstrategy #casestudy #brandreputation #socialmediaimpact #crisismanagement #brandfragility #marketingcase #digitalmarketing #consumerpower #ghorerbazar #sayedrisat</p>
+            </article>
             <a href="../pages/blog.html" class="read-more">Back to Blog</a>
         </section>
     </main>
@@ -163,5 +178,6 @@
     </a>
 
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/mobile.js"></script> <!-- Added mobile.js for mobile functionality -->
 </body>
 </html>
